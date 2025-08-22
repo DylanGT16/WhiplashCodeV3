@@ -376,3 +376,9 @@ void measure_offsets() {
 // . . .
 // Make your own autonomous functions here!
 // . . .
+
+void RedPos(
+
+
+
+);
