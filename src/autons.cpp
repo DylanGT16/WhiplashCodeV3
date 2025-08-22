@@ -377,8 +377,17 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 
-void RedPos(
+void RedPos() {
+  chassis.drive_imu_reset();
+  chassis.odom_reset();
+  pros::delay(250);
+  chassis.pid_turn_set({3_in,26_in},fwd,110);
+  pros::delay(500);
+  LowerChannel.move(127);
+  chassis.pid_odom_set({{3_in, 26_in}, fwd, 127});
+  pros::delay(500);
+  chassis.pid_turn_set({0_in,29_in}, fwd, 110);
 
 
 
-);
+};

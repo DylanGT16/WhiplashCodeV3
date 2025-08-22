@@ -13,7 +13,7 @@ ez::Drive chassis(
 
     9,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
-    60);   // Wheel RPM = cartridge * (motor gear / wheel gear)
+    360);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 // Uncomment the trackers you're using here!
 // - `8` and `9` are smart ports (making these negative will reverse the sensor)
@@ -235,11 +235,13 @@ void opcontrol() {
     ez_template_extras();
 
     // chassis.opcontrol_tank();  // Tank control
-     chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
+    // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
     // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
+    int forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);   // Left stick up/down
+    int turn    = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);  // Right stick left/right
     // . . .
     // Put more user control code here!
     // . . .
@@ -266,7 +268,6 @@ void opcontrol() {
     else {
       UpperChannel.move(0);
     }
-
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
