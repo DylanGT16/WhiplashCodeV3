@@ -58,7 +58,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-      {"Drive\n\nDrive forward and come back", drive_example},
+   {"RedSidePositiveAuton", RedPos},
   });
 
   // Initialize chassis and auton selector
@@ -196,7 +196,7 @@ void ez_template_extras() {
       chassis.pid_tuner_toggle();
 
     // Trigger the selected autonomous routine
-    if (master.get_digital(DIGITAL_B) && master.get_digital(DIGITAL_DOWN)) {
+    if (master.get_digital(DIGITAL_LEFT)) {
       pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
       autonomous();
       chassis.drive_brake_set(preference);
@@ -240,8 +240,17 @@ void opcontrol() {
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
-    int forward = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);   // Left stick up/down
-    int turn    = master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);  // Right stick left/right
+
+    // pick correct axes once we test them!
+    int forward = -master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
+    int turn    = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
+
+    // manual arcade drive mix
+    int left_power  = forward - turn;
+    int right_power = forward + turn;
+
+    chassis.drive_set(left_power, right_power);
+
     // . . .
     // Put more user control code here!
     // . . .
