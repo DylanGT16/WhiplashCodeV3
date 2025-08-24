@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include "EZ-Template/util.hpp"
 /////
 // For installation, upgrading, documentations, and tutorials, check out our website!
 // https://ez-robotics.github.io/EZ-Template/
@@ -56,7 +56,7 @@ void drive_example() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater than the slew distance + a few inches
-
+ 
   chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
@@ -381,12 +381,31 @@ void RedPos() {
   chassis.drive_imu_reset();
   chassis.odom_reset();
   pros::delay(250);
-  chassis.pid_turn_set({3_in,26_in},fwd,110);
-  pros::delay(500);
-  LowerChannel.move(127);
-  chassis.pid_odom_set({{3_in, 26_in}, fwd, 127});
-  pros::delay(500);
-  chassis.pid_turn_set({0_in,29_in}, fwd, 110);
+  chassis.pid_turn_set({3_in,26_in},rev,80);
+  chassis.pid_wait();
+  pros::delay(2000);
+  LowerChannel.move(-127);
+  chassis.pid_odom_set({{3_in, 26_in}, rev, 100});
+  chassis.pid_wait();
+  //pros::delay(2000);
+  //chassis.pid_turn_set({29_in,0_in}, rev, 80);
+  //chassis.pid_wait();
+  //LowerChannel.move(0);
+  //MiddleGoalScore.set(true);
+  //pros::delay(2000);
+  //chassis.pid_odom_set({{-2_in,32_in}, fwd, 40});
+  //chassis.pid_wait();
+  //pros::delay(2000);
+  //LowerChannel.move(-127);
+  //pros::delay(1000);
+  //LowerChannel.move(0);
+  //pros::delay(1000);
+  //chassis.pid_odom_set({{29_in,0_in}, rev, 100});
+  //chassis.pid_wait()
+  
+  
+
+
 
 
 
