@@ -244,13 +244,13 @@ void odom_drive_example() {
   // You can replace pid_drive_set with pid_odom_set and your robot will
   // have better error correction.
 
-  chassis.pid_odom_set(24_in, DRIVE_SPEED, true);
+  chassis.pid_odom_set(-24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_odom_set(-12_in, DRIVE_SPEED);
+  chassis.pid_odom_set(12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_odom_set(-12_in, DRIVE_SPEED);
+  chassis.pid_odom_set(12_in, DRIVE_SPEED);
   chassis.pid_wait();
 }
 

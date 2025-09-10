@@ -58,7 +58,7 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    {"PID Drive Tests",odom_drive_example},
+    {"PID Drive Tests", odom_drive_example},
     {"PID Turn Tests", turn_example},
    {"RedSidePositiveAuton", RedNeg},
   });
