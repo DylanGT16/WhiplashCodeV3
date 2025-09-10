@@ -385,6 +385,7 @@ void RedNeg() {
   pros::delay(250);
   chassis.pid_turn_set({0.5,0.5}, fwd, 80);
   chassis.pid_wait();
+  pros::delay(1000000000);
   screen_print("Hi I turned");
   pros::delay(2000);
   //LowerChannel.move(-127);
