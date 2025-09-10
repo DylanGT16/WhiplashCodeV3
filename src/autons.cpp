@@ -381,8 +381,9 @@ void RedNeg() {
   chassis.drive_imu_reset();
   chassis.pid_targets_reset();
   chassis.odom_reset();
+  chassis.odom_xyt_set(0_in,0_in,0_deg);
   pros::delay(250);
-  chassis.pid_turn_set({0.5_in,0.5_in},rev,80);
+  chassis.pid_turn_set({0.5,0.5}, fwd, 80);
   chassis.pid_wait();
   screen_print("Hi I turned");
   pros::delay(2000);
@@ -395,8 +396,11 @@ void RedNeg() {
 };
 
 void RedPos() {
-
-
+  chassis.drive_imu_reset();
+  chassis.pid_targets_reset();
+  chassis.odom_reset();
+  pros::delay(250);
+  chassis.pid_turn_set({-3_in,18_in}, rev, 80);
 
 
 
