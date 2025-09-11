@@ -56,14 +56,14 @@ void drive_example() {
   // The second parameter is max speed the robot will drive at
   // The third parameter is a boolean (true or false) for enabling/disabling a slew at the start of drive motions
   // for slew, only enable it when the drive distance is greater than the slew distance + a few inches
- 
-  chassis.pid_drive_set(24_in, DRIVE_SPEED, true);
+  chassis.pid_heading_constants_set(180);
+  chassis.pid_drive_set(-24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
+  chassis.pid_drive_set(12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_drive_set(-12_in, DRIVE_SPEED);
+  chassis.pid_drive_set(12_in, DRIVE_SPEED);
   chassis.pid_wait();
 }
 
@@ -244,13 +244,13 @@ void odom_drive_example() {
   // You can replace pid_drive_set with pid_odom_set and your robot will
   // have better error correction.
 
-  chassis.pid_odom_set(-24_in, DRIVE_SPEED, true);
+  chassis.pid_odom_set(24_in, DRIVE_SPEED, true);
   chassis.pid_wait();
 
-  chassis.pid_odom_set(12_in, DRIVE_SPEED);
+  chassis.pid_odom_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 
-  chassis.pid_odom_set(12_in, DRIVE_SPEED);
+  chassis.pid_odom_set(-12_in, DRIVE_SPEED);
   chassis.pid_wait();
 }
 
