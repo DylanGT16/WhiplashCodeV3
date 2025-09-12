@@ -402,7 +402,7 @@ void RedPos() {
   chassis.odom_reset();
   pros::delay(250);
   LowerChannel.move(127);
-  chassis.pid_odom_set(16, rev, 20);
+  chassis.pid_odom_set(16, fwd, 20);
   chassis.pid_wait();
   pros::delay(3000);
   //chassis.pid_turn_set(-78, 10);
