@@ -11,3 +11,4 @@ inline pros::Motor LowerChannel(10);
 inline pros::Motor UpperChannel(7);
 inline ez::Piston MiddleGoalScore('A');
 inline ez::Piston LoaderIntake('B');
+inline ez::Piston HorizOdomUp('C');
