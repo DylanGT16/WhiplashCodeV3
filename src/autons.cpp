@@ -405,26 +405,23 @@ void RedPos() {
   chassis.pid_odom_set(16, rev, 20);
   chassis.pid_wait();
   pros::delay(3000);
-  chassis.pid_turn_set(-78, 10);
-  chassis.pid_wait();
-  pros::delay(3000);
-  chassis.pid_odom_set(5, rev, 20);
-  chassis.pid_wait();
-  LowerChannel.move(-127);
-  pros::delay(3000);
-  chassis.pid_odom_set(40, fwd, 20);
-  chassis.pid_wait();
-  pros::delay(3000);
-  chassis.pid_turn_set(-100, 10);
-  chassis.pid_wait();
-  LoaderIntake.set(true);
-  pros::delay(3000);
-  chassis.pid_odom_set(16, rev, 20);
+  //chassis.pid_turn_set(-78, 10);
+  //chassis.pid_wait();
+  //pros::delay(3000);
+  //chassis.pid_odom_set(5, rev, 20);
+  //chassis.pid_wait();
+  //LowerChannel.move(-127);
+  //pros::delay(3000);
+  //chassis.pid_odom_set(40, fwd, 20);
+  //chassis.pid_wait();
+  //pros::delay(3000);
+  //chassis.pid_turn_set(-100, 10);
+  //chassis.pid_wait();
+  //LoaderIntake.set(true);
+  //pros::delay(3000);
+  //chassis.pid_odom_set(16, rev, 20);
 
-
-
-
-  HorizOdomUp.set(true);
+  //HorizOdomUp.set(true);
 
 
 
