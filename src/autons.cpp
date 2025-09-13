@@ -16,8 +16,8 @@ const int SWING_SPEED = 127;
 void default_constants() {
   // P, I, D, and Start I
   chassis.pid_drive_constants_set(0.67, 0, 0);         // Fwd/rev constants, used for odom and non odom motions
-  chassis.pid_heading_constants_set(200000, 0.0, 0.0);        // Holds the robot straight while going forward without odom
-  chassis.pid_turn_constants_set(100000, 0, 0.0);     // Turn in place constants
+  chassis.pid_heading_constants_set(2000, 0.0, 0.0);        // Holds the robot straight while going forward without odom
+  chassis.pid_turn_constants_set(0.3, 0, 0.0);     // Turn in place constants
   chassis.pid_swing_constants_set(1.0, 0.0, 12.0);           // Swing constants
   chassis.pid_odom_angular_constants_set(1200, 0.0, 2400);    // Angular control for odom motions
   chassis.pid_odom_boomerang_constants_set(5.8, 0.0, 32.5);  // Angular control for boomerang motions
@@ -417,10 +417,11 @@ void RedPos() {
   chassis.odom_reset();
   chassis.slew_odom_reenable(true);
   pros::delay(250);
-  chassis.pid_drive_set(-1.5,70,true);
+  chassis.pid_drive_set(-0.1,70,true);
   chassis.pid_wait();
   pros::delay(1000);
   chassis.pid_turn_set(90_deg, 40);
+  chassis.pid_wait();
   LoaderIntake.set(true);
   chassis.pid_drive_set(-1.2_in,50,true);
   chassis.pid_wait();
@@ -429,6 +430,7 @@ void RedPos() {
   pros::delay(750);
   LowerChannel.move(0);
   chassis.pid_drive_set(14, 70, true);
+  chassis.pid_wait();
   LowerChannel.move(-127);
   UpperChannel.move(-127);
   pros::delay(1000);
@@ -439,12 +441,17 @@ void RedPos() {
 
 
 void BlueNeg() {
-  HorizOdomUp.set(true);
-  chassis.drive_imu_reset();
-  chassis.pid_targets_reset();
-  chassis.odom_reset();
-  chassis.slew_odom_reenable(true);
-  pros::delay(250);
+  LowerChannel.move(-127);
+  chassis.drive_set(-80,80);
+  pros::delay(775);
+  chassis.drive_set(0,0);
+  pros::delay(2000);
+  chassis.drive_set(40,0);
+  pros::delay(1050);
+  chassis.drive_set(-40,40);
+  pros::delay(1000);
+  chassis.drive_set(0,0);
+  LowerChannel.move(127);
 
 
 
@@ -453,13 +460,15 @@ void BlueNeg() {
 
 
 void BluePos() {
-  HorizOdomUp.set(true);
-  chassis.drive_imu_reset();
-  chassis.pid_targets_reset();
-  chassis.odom_reset();
-  chassis.slew_odom_reenable(true);
-  pros::delay(250);
-
-
+  MiddleGoalScore.set(true);
+  chassis.drive_set(-80,80);
+  pros::delay(775);
+  chassis.drive_set(-40,0);
+  pros::delay(1050);
+  chassis.drive_set(-40,40);
+  pros::delay(1000);
+  chassis.drive_set(0,0);
+  LowerChannel.move(-127);
 
 };
+

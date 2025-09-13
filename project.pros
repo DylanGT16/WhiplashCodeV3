@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Red Negative",
+    "project_name": "Blue Positive",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,8 +424,10 @@
       }
     },
     "upload_options": {
-      "description": "roboticsisez.com",
-      "icon": "X"
+      "description": "Hi",
+      "icon": "robot",
+      "slot": 1,
+      "after": "none"
     },
     "use_early_access": false
   }
