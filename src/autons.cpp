@@ -15,7 +15,7 @@ const int SWING_SPEED = 127;
 ///
 void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(-0.7, 0, 0);         // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_drive_constants_set(20.7, 0, 0);         // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(-40, 0.0, 0.0);        // Holds the robot straight while going forward without odom
   chassis.pid_turn_constants_set(-40, 0, 0.0);     // Turn in place constants
   chassis.pid_swing_constants_set(1.0, 0.0, 12.0);           // Swing constants
@@ -386,44 +386,62 @@ void RedNeg() {
   chassis.slew_odom_reenable(true);
   pros::delay(250);
   LowerChannel.move(127);
-  chassis.pid_odom_set(0.2_in, 20, true);
+  chassis.pid_odom_set(16, 70, true);
   chassis.pid_wait();
   pros::delay(3000);
   LowerChannel.move(0);
-  chassis.odom_x_get();
-  pros::delay(1000);
-  chassis.odom_y_get();
-  
-  //chassis.pid_turn_set(-78, 10);
-  //chassis.pid_wait();
-  //pros::delay(3000);
-  //chassis.pid_odom_set(-5, rev, 20);
-  //chassis.pid_wait();
-  //LowerChannel.move(-127);
-  //pros::delay(3000);
-  //chassis.pid_odom_set(-40, fwd, 20);
-  //chassis.pid_wait();
-  //pros::delay(3000);
-  //chassis.pid_turn_set(-100, 10);
-  //chassis.pid_wait();
-  //LoaderIntake.set(true);
-  //pros::delay(3000);
-  //chassis.pid_odom_set(-16, rev, 20);
+  chassis.pid_turn_set(78, 10);
+  chassis.pid_wait();
+  pros::delay(3000);
+  chassis.pid_odom_set(-5, rev, 20);
+  chassis.pid_wait();
+  LowerChannel.move(-127);
+  pros::delay(3000);
+  chassis.pid_odom_set(-40, fwd, 20);
+  chassis.pid_wait();
+  pros::delay(3000);
+  chassis.pid_turn_set(100, 10);
+  chassis.pid_wait();
+  LoaderIntake.set(true);
+  pros::delay(3000);
+  chassis.pid_odom_set(-16, rev, 20);
 
-  //HorizOdomUp.set(false);
 
 };
 
 void RedPos() {
   HorizOdomUp.set(true);
+  chassis.odom_enable(true);
   chassis.drive_imu_reset();
   chassis.pid_targets_reset();
   chassis.odom_reset();
   chassis.slew_odom_reenable(true);
   pros::delay(250);
+  LowerChannel.move(127);
+  chassis.pid_odom_set(16, 20, true);
+  chassis.pid_wait();
+  pros::delay(3000);
+  LowerChannel.move(0);
+  chassis.odom_x_get();
+  pros::delay(500);
+  chassis.odom_y_get();
+  chassis.pid_turn_set(-78, 10);
+  chassis.pid_wait();
+  pros::delay(1000);
+  chassis.pid_odom_set(5, 20);
+  chassis.pid_wait();
+  LowerChannel.move(-127);
+  pros::delay(1000);
+  chassis.pid_odom_set(-40, 20, true);
+  chassis.pid_wait();
+  pros::delay(1000);
+  chassis.pid_turn_set(-100, 10);
+  chassis.pid_wait();
+  LoaderIntake.set(true);
+  pros::delay(1000);
+  chassis.pid_odom_set(-16, 20);
 
-
-
+  HorizOdomUp.set(false);
 };
 
 

@@ -58,11 +58,10 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
+    {'RedSidePositiveAuton', RedPos},
     {"RedSideNegativeAuton", RedNeg},
-    {"PID Non-Odom Drive Tests", drive_example},
-    {"PID Turn Tests", turn_example},
 
-  });
+});
 
   // Initialize chassis and auton selector
   chassis.initialize();
