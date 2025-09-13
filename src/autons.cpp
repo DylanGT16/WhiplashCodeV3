@@ -15,7 +15,7 @@ const int SWING_SPEED = 127;
 ///
 void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(20, 0, 60);         // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_drive_constants_set(1, 0, 0);         // Fwd/rev constants, used for odom and non odom motions
   chassis.pid_heading_constants_set(-40, 0.0, 0.0);        // Holds the robot straight while going forward without odom
   chassis.pid_turn_constants_set(-40, 0, 0.0);     // Turn in place constants
   chassis.pid_swing_constants_set(1.0, 0.0, 12.0);           // Swing constants
@@ -385,7 +385,7 @@ void RedNeg() {
   chassis.slew_odom_reenable(true);
   pros::delay(250);
   LowerChannel.move(127);
-  chassis.pid_odom_set(4, 40, true);
+  chassis.pid_odom_set(4_in, 40, true);
   chassis.pid_wait();
   pros::delay(3000);
   //chassis.pid_turn_set(-78, 10);
@@ -409,7 +409,12 @@ void RedNeg() {
 };
 
 void RedPos() {
-
+  HorizOdomUp.set(true);
+  chassis.drive_imu_reset();
+  chassis.pid_targets_reset();
+  chassis.odom_reset();
+  chassis.slew_odom_reenable(true);
+  pros::delay(250);
 
 
 
@@ -417,7 +422,12 @@ void RedPos() {
 
 
 void BlueNeg() {
-
+  HorizOdomUp.set(true);
+  chassis.drive_imu_reset();
+  chassis.pid_targets_reset();
+  chassis.odom_reset();
+  chassis.slew_odom_reenable(true);
+  pros::delay(250);
 
 
 
@@ -426,7 +436,12 @@ void BlueNeg() {
 
 
 void BluePos() {
-
+  HorizOdomUp.set(true);
+  chassis.drive_imu_reset();
+  chassis.pid_targets_reset();
+  chassis.odom_reset();
+  chassis.slew_odom_reenable(true);
+  pros::delay(250);
 
 
 
