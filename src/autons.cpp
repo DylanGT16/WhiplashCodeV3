@@ -386,7 +386,7 @@ void RedNeg() {
   chassis.slew_odom_reenable(true);
   pros::delay(250);
   LowerChannel.move(127);
-  chassis.pid_odom_set(8_in, 20, true);
+  chassis.pid_odom_set(0.2_in, 20, true);
   chassis.pid_wait();
   pros::delay(3000);
   LowerChannel.move(0);

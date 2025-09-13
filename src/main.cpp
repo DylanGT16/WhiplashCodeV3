@@ -157,12 +157,32 @@ void ez_screen_task() {
                                "\ny: " + util::to_string_with_precision(chassis.odom_y_get()) +
                                "\na: " + util::to_string_with_precision(chassis.odom_theta_get()),
                            1);  // Don't override the top Page line
+           if (chassis.odom_tracker_left != nullptr) {
+            ez::screen_print("l tracker: " + util::to_string_with_precision(chassis.odom_tracker_left->get()) +
+                                 "  width: " + util::to_string_with_precision(chassis.odom_tracker_left->distance_to_center_get()),
+                             4);
+          }
+          if (chassis.odom_tracker_right != nullptr) {
+            ez::screen_print("r tracker: " + util::to_string_with_precision(chassis.odom_tracker_right->get()) +
+                                 "  width: " + util::to_string_with_precision(chassis.odom_tracker_right->distance_to_center_get()),
+                             5);
+          }
+          if (chassis.odom_tracker_back != nullptr) {
+            ez::screen_print("b tracker: " + util::to_string_with_precision(chassis.odom_tracker_back->get()) +
+                                 "  width: " + util::to_string_with_precision(chassis.odom_tracker_back->distance_to_center_get()),
+                             6);
+          }
+          if (chassis.odom_tracker_front != nullptr) {
+            ez::screen_print("f tracker: " + util::to_string_with_precision(chassis.odom_tracker_front->get()) +
+                                 "  width: " + util::to_string_with_precision(chassis.odom_tracker_front->distance_to_center_get()),
+                             7);
 
           // Display all trackers that are being used
           screen_print_tracker(chassis.odom_tracker_left, "l", 4);
           screen_print_tracker(chassis.odom_tracker_right, "r", 5);
           screen_print_tracker(chassis.odom_tracker_back, "b", 6);
           screen_print_tracker(chassis.odom_tracker_front, "f", 7);
+          }
         }
       }
     }
