@@ -15,9 +15,9 @@ const int SWING_SPEED = 127;
 ///
 void default_constants() {
   // P, I, D, and Start I
-  chassis.pid_drive_constants_set(20.7, 0, 0);         // Fwd/rev constants, used for odom and non odom motions
-  chassis.pid_heading_constants_set(-40, 0.0, 0.0);        // Holds the robot straight while going forward without odom
-  chassis.pid_turn_constants_set(-40, 0, 0.0);     // Turn in place constants
+  chassis.pid_drive_constants_set(0.67, 0, 0);         // Fwd/rev constants, used for odom and non odom motions
+  chassis.pid_heading_constants_set(200000, 0.0, 0.0);        // Holds the robot straight while going forward without odom
+  chassis.pid_turn_constants_set(10, 0, 0.0);     // Turn in place constants
   chassis.pid_swing_constants_set(1.0, 0.0, 12.0);           // Swing constants
   chassis.pid_odom_angular_constants_set(1200, 0.0, 2400);    // Angular control for odom motions
   chassis.pid_odom_boomerang_constants_set(5.8, 0.0, 32.5);  // Angular control for boomerang motions
@@ -417,30 +417,23 @@ void RedPos() {
   chassis.odom_reset();
   chassis.slew_odom_reenable(true);
   pros::delay(250);
-  LowerChannel.move(127);
-  chassis.pid_odom_set(16, 20, true);
-  chassis.pid_wait();
-  pros::delay(3000);
-  LowerChannel.move(0);
-  chassis.odom_x_get();
-  pros::delay(500);
-  chassis.odom_y_get();
-  chassis.pid_turn_set(-78, 10);
+  chassis.pid_drive_set(-1.5,70,true);
   chassis.pid_wait();
   pros::delay(1000);
-  chassis.pid_odom_set(5, 20);
-  chassis.pid_wait();
-  LowerChannel.move(-127);
-  pros::delay(1000);
-  chassis.pid_odom_set(-40, 20, true);
-  chassis.pid_wait();
-  pros::delay(1000);
-  chassis.pid_turn_set(-100, 10);
-  chassis.pid_wait();
+  chassis.pid_turn_set(90_deg, 40);
   LoaderIntake.set(true);
+  chassis.pid_drive_set(-1.2_in,50,true);
+  chassis.pid_wait();
+  pros::delay(500);
+  LowerChannel.move(-127);
+  pros::delay(750);
+  LowerChannel.move(0);
+  chassis.pid_drive_set(14, 70, true);
+  LowerChannel.move(-127);
+  UpperChannel.move(-127);
   pros::delay(1000);
-  chassis.pid_odom_set(-16, 20);
-
+  LowerChannel.move(0);
+  UpperChannel.move(0);
   HorizOdomUp.set(false);
 };
 
