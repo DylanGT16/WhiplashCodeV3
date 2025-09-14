@@ -440,26 +440,32 @@ void RedPos() {
 };
 
 
-void BlueNeg() {
+void BlueRight() {
   LowerChannel.move(-127);
+  chassis.drive_set(-70,70);
+  pros::delay(880);
+  chassis.drive_set(17,-17);
+  pros::delay(1100);
+  chassis.drive_set(-57,0);
+  pros::delay(1350);
   chassis.drive_set(-80,80);
   pros::delay(800);
   chassis.drive_set(0,0);
-  pros::delay(2000);
-  chassis.drive_set(40,0);
-  pros::delay(1050);
-  chassis.drive_set(-40,40);
+  pros::delay(750);
+  chassis.drive_set(80,80);
   pros::delay(1000);
+  chassis.drive_set(-60,60);
+  pros::delay(1200);
   chassis.drive_set(0,0);
-  LowerChannel.move(127);
-
+  LowerChannel.move(-127);
+  UpperChannel.move(-127);
 
 
 
 };
 
 
-void BluePos() {
+void BlueLeft() {
   MiddleGoalScore.set(true);
   chassis.drive_set(80,-80);
   pros::delay(800);

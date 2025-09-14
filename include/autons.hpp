@@ -19,5 +19,5 @@ void measure_offsets();
 
 void RedNeg();
 void RedPos();
-void BluePos();
-void BlueNeg();
+void BlueLeft();
+void BlueRight();
