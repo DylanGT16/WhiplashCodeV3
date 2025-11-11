@@ -377,68 +377,6 @@ void measure_offsets() {
 // Make your own autonomous functions here!
 // . . .
 
-void RedNeg() {
-  HorizOdomUp.set(true);
-  chassis.odom_enable(true);
-  chassis.drive_imu_reset();
-  chassis.pid_targets_reset();
-  chassis.odom_reset();
-  chassis.slew_odom_reenable(true);
-  pros::delay(250);
-  LowerChannel.move(127);
-  chassis.pid_odom_set(16, 70, true);
-  chassis.pid_wait();
-  pros::delay(3000);
-  LowerChannel.move(0);
-  chassis.pid_turn_set(78, 10);
-  chassis.pid_wait();
-  pros::delay(3000);
-  chassis.pid_odom_set(-5, rev, 20);
-  chassis.pid_wait();
-  LowerChannel.move(-127);
-  pros::delay(3000);
-  chassis.pid_odom_set(-40, fwd, 20);
-  chassis.pid_wait();
-  pros::delay(3000);
-  chassis.pid_turn_set(100, 10);
-  chassis.pid_wait();
-  LoaderIntake.set(true);
-  pros::delay(3000);
-  chassis.pid_odom_set(-16, rev, 20);
-
-
-};
-
-void RedPos() {
-  HorizOdomUp.set(true);
-  chassis.odom_enable(true);
-  chassis.drive_imu_reset();
-  chassis.pid_targets_reset();
-  chassis.odom_reset();
-  chassis.slew_odom_reenable(true);
-  pros::delay(250);
-  chassis.pid_drive_set(-0.1,70,true);
-  chassis.pid_wait();
-  pros::delay(1000);
-  chassis.pid_turn_set(90_deg, 40);
-  chassis.pid_wait();
-  LoaderIntake.set(true);
-  chassis.pid_drive_set(-1.2_in,50,true);
-  chassis.pid_wait();
-  pros::delay(500);
-  LowerChannel.move(-127);
-  pros::delay(750);
-  LowerChannel.move(0);
-  chassis.pid_drive_set(14, 70, true);
-  chassis.pid_wait();
-  LowerChannel.move(-127);
-  UpperChannel.move(-127);
-  pros::delay(1000);
-  LowerChannel.move(0);
-  UpperChannel.move(0);
-  HorizOdomUp.set(false);
-};
-
 
 void BlueRight() {
   LowerChannel.move(-127);
@@ -461,22 +399,6 @@ void BlueRight() {
   UpperChannel.move(-127);
 
 
-
-};
-
-
-void BlueLeft() {
-  MiddleGoalScore.set(true);
-  chassis.drive_set(80,-80);
-  pros::delay(800);
-  chassis.drive_set(0,0);
-  pros::delay(2000);
-  chassis.drive_set(-40,0);
-  pros::delay(1050);
-  chassis.drive_set(-40,40);
-  pros::delay(1000);
-  chassis.drive_set(0,0);
-  LowerChannel.move(-127);
 
 };
 
