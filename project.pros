@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Blue Right",
+    "project_name": "Drive Code",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -425,8 +425,8 @@
     },
     "upload_options": {
       "description": "Hi",
-      "icon": "pizza",
-      "slot": 2,
+      "icon": "robot",
+      "slot": 1,
       "after": "none"
     },
     "use_early_access": false
