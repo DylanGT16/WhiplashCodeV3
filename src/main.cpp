@@ -8,8 +8,8 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {1, 11, 12},     // Left Chassis Ports (negative port will reverse it!)
-    {10, 20, 19},  // Right Chassis Ports (negative port will reverse it!)
+    {-1, -11, -2},     // Left Chassis Ports (negative port will reverse it!)
+    {10, 8, 9},  // Right Chassis Ports (negative port will reverse it!)
 
     6,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -20,8 +20,8 @@ ez::Drive chassis(
 //  - you should get positive values on the encoders going FORWARD and RIGHT
 // - `2.75` is the wheel diameter
 // - `4.0` is the distance from the center of the wheel to the center of the robot
-ez::tracking_wheel horiz_tracker(20, 2, 2.5);  // This tracking wheel is perpendicular to the drive wheels
-ez::tracking_wheel vert_tracker(10, 2, .5);   // This tracking wheel is parallel to the drive wheels
+ez::tracking_wheel horiz_tracker(-20, 2, 2.5);  // This tracking wheel is perpendicular to the drive wheels
+ez::tracking_wheel vert_tracker(-10, 2, .5);   // This tracking wheel is parallel to the drive wheels
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -256,12 +256,13 @@ void opcontrol() {
     ez_template_extras();
 
     // chassis.opcontrol_tank();  // Tank control
-    // chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
+    chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
     // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
     // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
 
+    /*
     // pick correct axes once we test them!
     int forward = -master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
     int turn    = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
@@ -271,6 +272,7 @@ void opcontrol() {
     int right_power = forward + turn;
 
     chassis.drive_set(left_power, right_power);
+    */
 
     // . . .
     // Put more user control code here!
