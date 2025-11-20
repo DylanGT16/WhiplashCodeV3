@@ -262,18 +262,6 @@ void opcontrol() {
     // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
 
 
-    /*
-    // pick correct axes once we test them!
-    int forward = -master.get_analog(pros::E_CONTROLLER_ANALOG_RIGHT_X);
-    int turn    = master.get_analog(pros::E_CONTROLLER_ANALOG_LEFT_Y);
-
-    // manual arcade drive mix
-    int left_power  = forward - turn;
-    int right_power = forward + turn;
-
-    chassis.drive_set(left_power, right_power);
-    */
-
     // . . .
     // Put more user control code here!
     // . . .
