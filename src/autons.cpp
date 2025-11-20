@@ -379,8 +379,7 @@ void measure_offsets() {
 
 
 void BlueRight() {
-  chassis.odom_xyt_set(0_in, 0_in, 0_deg);
-  chassis.pid_odom_set({{0_in, 0_in, -90_deg}, fwd, 40});
+  chassis.pid_odom_set({{0_in, 10_in, 0_deg}, fwd, 40});
 
 
 
