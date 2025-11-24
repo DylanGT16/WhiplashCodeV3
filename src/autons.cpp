@@ -415,3 +415,10 @@ void Left() {
 
 };
 
+void AWPRightStart() {
+  chassis.pid_odom_set(40_in,40);
+  pros::delay(4000);
+  chassis.pid_turn_set(90,40);
+
+};
+

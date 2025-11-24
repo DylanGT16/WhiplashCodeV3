@@ -58,8 +58,9 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    {"Left", Left},
-    {"Right", Right},
+    //{"Left", Left},
+    //{"Right", Right},
+    {"AWPRightStart", AWPRightStart},
 
 });
 
