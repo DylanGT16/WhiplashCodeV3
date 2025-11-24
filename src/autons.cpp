@@ -416,21 +416,25 @@ void Left() {
 };
 
 void AWPRightStart() {
-  chassis.pid_odom_set(34_in,40);
+  chassis.pid_odom_set(32_in,40);
   pros::delay(4000);
   chassis.pid_turn_set(90,40);
   pros::delay(2000);
   chassis.pid_odom_set(6_in,40);
   pros::delay(2000);
-  chassis.pid_odom_set(-28_in,40);
+  chassis.pid_odom_set(-25_in,40);
   pros::delay(3000);
   chassis.pid_odom_set(18_in, 40);
   pros::delay(2000);
-  chassis.pid_turn_set(-135,40);
+  chassis.pid_turn_set(-140,40);
   pros::delay(2000);
-  chassis.pid_odom_set(24_in,40);
+  chassis.pid_odom_set(36_in,40);
   pros::delay(4000);
-  chassis.pid_turn_set(180,40);
+  chassis.pid_turn_set(-170,40);
+  pros::delay(2000);
+  chassis.pid_drive_set(50_in,40);
+  pros::delay(6000);
+  chassis.pid_turn_set(135,40);
 
 };
 
