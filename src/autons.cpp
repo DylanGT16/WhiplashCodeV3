@@ -378,7 +378,7 @@ void measure_offsets() {
 // . . .
 
 
-void BlueRight() {
+void Right() {
   chassis.pid_odom_set(28_in, 40);
   pros::delay(2000);
   chassis.pid_turn_set(110,40);
@@ -391,6 +391,25 @@ void BlueRight() {
   pros::delay(3000);
   chassis.pid_drive_set(22_in,40);
 
+
+
+
+};
+
+void Left() {
+  chassis.pid_odom_set(28_in, 40);
+  pros::delay(2000);
+  chassis.pid_turn_set(-110,40);
+  pros::delay(2000);
+  chassis.pid_odom_set(-16_in,40);
+  pros::delay(3000);
+  chassis.pid_odom_set(51_in,40);
+  pros::delay(5000);
+  chassis.pid_turn_set(-155,40);
+  pros::delay(2000);
+  chassis.pid_drive_set(-25_in,40);
+  pros::delay(3000);
+  chassis.pid_drive_set(22_in,40);
 
 
 

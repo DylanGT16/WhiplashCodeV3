@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Drive Code",
+    "project_name": "Left Side",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,8 +424,8 @@
       }
     },
     "upload_options": {
-      "description": "Hi",
-      "icon": "robot",
+      "description": "Left Side Match Auton",
+      "icon": "X",
       "slot": 1,
       "after": "none"
     },
