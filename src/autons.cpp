@@ -426,15 +426,17 @@ void AWPRightStart() {
   pros::delay(3000);
   chassis.pid_odom_set(18_in, 40);
   pros::delay(2000);
-  chassis.pid_turn_set(-140,40);
+  chassis.pid_turn_set(-130,40);
   pros::delay(2000);
-  chassis.pid_odom_set(36_in,40);
+  chassis.pid_odom_set(34_in,40);
   pros::delay(4000);
-  chassis.pid_turn_set(-170,40);
+  chassis.pid_turn_set(-178,40);
   pros::delay(2000);
   chassis.pid_drive_set(50_in,40);
   pros::delay(6000);
-  chassis.pid_turn_set(135,40);
+  chassis.pid_drive_set(8_in,40);
+  pros::delay(2000);
+  chassis.pid_turn_set(120,40);
 
 };
 

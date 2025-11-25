@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Right Side AWP",
+    "project_name": "AWP",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,8 +424,8 @@
       }
     },
     "upload_options": {
-      "description": "Right Side Autonomous Win Point",
-      "icon": "clawbot",
+      "description": "Right Start Autonomous Win Point",
+      "icon": "pizza",
       "slot": 3,
       "after": "none"
     },
