@@ -448,6 +448,6 @@ void AWPRightStart() {
 };
 
 void Skills(){
-  chassis.pid_odom_set(24_in,40);
+  chassis.pid_odom_set(30_in,40);
 
 };
