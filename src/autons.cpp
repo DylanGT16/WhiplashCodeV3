@@ -449,5 +449,7 @@ void AWPRightStart() {
 
 void Skills(){
   chassis.pid_odom_set(30_in,40);
+  pros::delay(2000);
+  chassis.pid_turn_set(90,40);
 
 };
