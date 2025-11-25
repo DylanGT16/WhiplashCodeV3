@@ -387,9 +387,9 @@ void Right() {
   pros::delay(5000);
   chassis.pid_turn_set(155,40);
   pros::delay(2000);
-  chassis.pid_drive_set(-25_in,40);
+  chassis.pid_odom_set(-25_in,40);
   pros::delay(3000);
-  chassis.pid_drive_set(22_in,40);
+  chassis.pid_odom_set(22_in,40);
 
 
 
@@ -407,9 +407,9 @@ void Left() {
   pros::delay(5000);
   chassis.pid_turn_set(-155,40);
   pros::delay(2000);
-  chassis.pid_drive_set(-25_in,40);
+  chassis.pid_odom_set(-25_in,40);
   pros::delay(3000);
-  chassis.pid_drive_set(22_in,40);
+  chassis.pid_odom_set(22_in,40);
 
 
 
@@ -442,8 +442,12 @@ void AWPRightStart() {
   pros::delay(5000);
   chassis.pid_turn_set(90,40);
   pros::delay(2000);
-  chassis.pid_odom_set(4_in,40);
+  chassis.pid_odom_set(6_in,40);
   pros::delay(2000);
-  chassis.pid_odom_set(32_in,40);
+  chassis.pid_odom_set(-32_in,40);
 };
 
+void Skills(){
+  chassis.pid_odom_set(0_in,40);
+
+};

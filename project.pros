@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "AWP",
+    "project_name": "Skills",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,9 +424,9 @@
       }
     },
     "upload_options": {
-      "description": "Right Start Autonomous Win Point",
-      "icon": "pizza",
-      "slot": 3,
+      "description": "Skills Autonomous Code",
+      "icon": "clawbot",
+      "slot": 4,
       "after": "none"
     },
     "use_early_access": false

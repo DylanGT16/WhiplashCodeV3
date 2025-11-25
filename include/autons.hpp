@@ -20,3 +20,4 @@ void measure_offsets();
 void Left();
 void Right();
 void AWPRightStart();
+void Skills();
