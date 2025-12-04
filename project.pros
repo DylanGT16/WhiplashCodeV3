@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Skills",
+    "project_name": "Test",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,9 +424,9 @@
       }
     },
     "upload_options": {
-      "description": "Skills Autonomous Code",
+      "description": "Test",
       "icon": "clawbot",
-      "slot": 4,
+      "slot": 2,
       "after": "none"
     },
     "use_early_access": false

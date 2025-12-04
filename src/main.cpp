@@ -8,8 +8,8 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-1, -11, -2},     // Left Chassis Ports (negative port will reverse it!)
-    {10, 8, 19},  // Right Chassis Ports (negative port will reverse it!)
+    {-12, -11, -1},     // Left Chassis Ports (negative port will reverse it!)
+    {19, 10, 20},  // Right Chassis Ports (negative port will reverse it!)
 
     6,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -20,8 +20,8 @@ ez::Drive chassis(
 //  - you should get positive values on the encoders going FORWARD and RIGHT
 // - `2.75` is the wheel diameter
 // - `4.0` is the distance from the center of the wheel to the center of the robot
-ez::tracking_wheel horiz_tracker(20, 2, 2.5);  // This tracking wheel is perpendicular to the drive wheels
-ez::tracking_wheel vert_tracker(-9, 2, 1.5);   // This tracking wheel is parallel to the drive wheels
+ez::tracking_wheel horiz_tracker(-9, 2, 2.5);  // This tracking wheel is perpendicular to the drive wheels
+ez::tracking_wheel vert_tracker(8, 2, 1.5);   // This tracking wheel is parallel to the drive wheels
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -268,28 +268,30 @@ void opcontrol() {
     // . . .
     // Put more user control code here!
     // . . .
-    MiddleGoalScore.button_toggle(master.get_digital(DIGITAL_Y)); 
+    MatchLoader.button_toggle(master.get_digital(DIGITAL_RIGHT)); 
     
-    LoaderIntake.button_toggle(master.get_digital(DIGITAL_RIGHT));
+    DescoreWings.button_toggle(master.get_digital(DIGITAL_B)); 
+    
+    ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
     
     if (master.get_digital(DIGITAL_L1)) {
-      LowerChannel.move(-127);
+      Channel.move(-127);
     } 
     else if (master.get_digital(DIGITAL_L2)) {
-      LowerChannel.move(127);
+      Channel.move(127);
     } 
     else {
-      LowerChannel.move(0);
+      Channel.move(0);
     }
     
     if (master.get_digital(DIGITAL_R1)) {
-      UpperChannel.move(-127);
+      Scorer.move(-127);
     } 
     else if (master.get_digital(DIGITAL_R2)) {
-      UpperChannel.move(127);
+      Scorer.move(127);
     } 
     else {
-      UpperChannel.move(0);
+      Scorer.move(0);
     }
 
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
