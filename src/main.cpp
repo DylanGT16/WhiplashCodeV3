@@ -11,7 +11,7 @@ ez::Drive chassis(
     {-12, -11, -1},     // Left Chassis Ports (negative port will reverse it!)
     {19, 10, 20},  // Right Chassis Ports (negative port will reverse it!)
 
-    6,      // IMU Port
+    16,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     360);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
@@ -53,8 +53,7 @@ void initialize() {
   default_constants();
 
   // These are already defaulted to these buttons, but you can change the left/right curve buttons here!
-  // chassis.opcontrol_curve_buttons_left_set(pros::E_CONTROLLER_DIGITAL_LEFT, pros::E_CONTROLLER_DIGITAL_RIGHT);  // If using tank, only the left side is used.
-  // chassis.opcontrol_curve_buttons_right_set(pros::E_CONTROLLER_DIGITAL_Y, pros::E_CONTROLLER_DIGITAL_A);
+
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
