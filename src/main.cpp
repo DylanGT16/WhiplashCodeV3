@@ -220,7 +220,7 @@ void ez_template_extras() {
       chassis.pid_tuner_toggle();
 
     // Trigger the selected autonomous routine
-    if (master.get_digital(DIGITAL_B)) {
+    if (master.get_digital(DIGITAL_LEFT)) {
       pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
       autonomous();
       chassis.drive_brake_set(preference);
