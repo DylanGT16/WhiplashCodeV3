@@ -6,7 +6,7 @@
 /////
 
 // These are out of 127
-const int DRIVE_SPEED = 127;
+const int DRIVE_SPEED = 90;
 const int TURN_SPEED = 110;
 const int SWING_SPEED = 127;
 
@@ -399,22 +399,22 @@ void Right() {
 void Left() {
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_odom_set(26_in, 90);
+  chassis.pid_odom_set(26_in, 127);
   pros::delay(2000);
-  chassis.pid_turn_set(-98,100);
+  chassis.pid_turn_set(-95,100);
   pros::delay(2000);
-  chassis.pid_odom_set(26_in,90);
+  chassis.pid_odom_set(26_in, 127);
   pros::delay(3000);
   chassis.pid_turn_set(-135,100);
   Channel.move(0);
   pros::delay(2000);
-  chassis.pid_odom_set(-9_in,90);
+  chassis.pid_odom_set(-7_in,127);
   pros::delay(2000);
   ScoreSwitcher.set(false);
   Channel.move(-127);
   Scorer.move(-127);
-  pros::delay(3000);
-  chassis.pid_odom_set(54_in,40);
+  pros::delay(6000);
+  chassis.pid_odom_set(45_in,40);
   pros::delay(5000);
   chassis.pid_turn_set(-155,40);
   pros::delay(2000);
