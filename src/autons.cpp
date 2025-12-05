@@ -403,24 +403,30 @@ void Left() {
   pros::delay(2000);
   chassis.pid_turn_set(-95,100);
   pros::delay(2000);
-  chassis.pid_odom_set(26_in, 127);
+  chassis.pid_odom_set(20_in, 127);
   pros::delay(3000);
-  chassis.pid_turn_set(-135,100);
+  chassis.pid_turn_set(-133,100);
   Channel.move(0);
   pros::delay(2000);
-  chassis.pid_odom_set(-7_in,127);
+  chassis.pid_odom_set(-12_in,127);
   pros::delay(2000);
   ScoreSwitcher.set(false);
   Channel.move(-127);
   Scorer.move(-127);
   pros::delay(6000);
-  chassis.pid_odom_set(45_in,40);
+  chassis.pid_odom_set(50_in,127);
+  Scorer.move(0);
+  Channel.move(-127);
   pros::delay(5000);
-  chassis.pid_turn_set(-155,40);
+  chassis.pid_turn_set(-180,100);
+  MatchLoader.set(true);
+  ScoreSwitcher.set(true);
+  Channel.move(-127);
   pros::delay(2000);
-  chassis.pid_odom_set(-25_in,40);
+  chassis.pid_odom_set(15_in,127);
   pros::delay(3000);
-  chassis.pid_odom_set(22_in,40);
+  chassis.pid_odom_set(-42_in,127);
+
 
 
 
