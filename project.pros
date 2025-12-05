@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Test",
+    "project_name": "LeftAuton",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,8 +424,8 @@
       }
     },
     "upload_options": {
-      "description": "Test",
-      "icon": "clawbot",
+      "description": "Left",
+      "icon": "pros",
       "slot": 1,
       "after": "none"
     },

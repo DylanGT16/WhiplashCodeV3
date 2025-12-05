@@ -397,13 +397,24 @@ void Right() {
 };
 
 void Left() {
-  chassis.pid_odom_set(28_in, 40);
+  ScoreSwitcher.set(true);
+  Channel.move(-127);
+  chassis.pid_odom_set(26_in, 90);
   pros::delay(2000);
-  chassis.pid_turn_set(-110,40);
+  chassis.pid_turn_set(-98,100);
   pros::delay(2000);
-  chassis.pid_odom_set(-16_in,40);
+  chassis.pid_odom_set(26_in,90);
   pros::delay(3000);
-  chassis.pid_odom_set(51_in,40);
+  chassis.pid_turn_set(-135,100);
+  Channel.move(0);
+  pros::delay(2000);
+  chassis.pid_odom_set(-9_in,90);
+  pros::delay(2000);
+  ScoreSwitcher.set(false);
+  Channel.move(-127);
+  Scorer.move(-127);
+  pros::delay(3000);
+  chassis.pid_odom_set(54_in,40);
   pros::delay(5000);
   chassis.pid_turn_set(-155,40);
   pros::delay(2000);
