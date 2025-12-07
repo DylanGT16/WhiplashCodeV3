@@ -382,31 +382,35 @@ void Right() {
   ScoreSwitcher.set(true);
   Channel.move(-127);
   chassis.pid_drive_set(26_in, 100);
-  pros::delay(900);
-  chassis.pid_turn_set(93,100);
-  pros::delay(500);
-  chassis.pid_drive_set(23_in, 70);
+  pros::delay(800);
+  chassis.pid_turn_set(93,110);
+  pros::delay(400);
+  chassis.pid_drive_set(16_in, 70);
   pros::delay(1200);
-  chassis.pid_turn_set(125,100);
-  pros::delay(500);
-  chassis.pid_drive_set(32_in,110);
-  Scorer.move(0);
+  chassis.pid_turn_set(125,110);
+  pros::delay(400);
+  chassis.pid_drive_set(38_in,127);
   Channel.move(-127);
-  pros::delay(2000);
+  pros::delay(1300);
   chassis.pid_turn_set(180,100);
   MatchLoader.set(true);
   Channel.move(-127);
+  DescoreWings.set(true);
   pros::delay(500);
-  chassis.pid_drive_set(26_in,127);
-  pros::delay(1100);
-  chassis.pid_turn_set(182,110);
-  pros::delay(250);
-  chassis.pid_turn_set(178,110);
-  pros::delay(250);
-  chassis.pid_drive_set(-28_in,110);
-  pros::delay(500);
+  chassis.pid_drive_set(-26_in,110);
+  pros::delay(750);
   Scorer.move(-127);
-
+  pros::delay(3000);
+  chassis.pid_drive_set(15_in,127);
+  pros::delay(1000);
+  chassis.pid_turn_set(-50,10);
+  pros::delay(500);
+  chassis.pid_drive_set(15_in,127);
+  pros::delay(1000);
+  chassis.pid_turn_set(0,110);
+  DescoreWings.set(false);
+  pros::delay(500);
+  chassis.pid_drive_set(23_in,127);
 
 };
 
@@ -417,11 +421,11 @@ void Left() {
   pros::delay(900);
   chassis.pid_turn_set(-93,100);
   pros::delay(500);
-  chassis.pid_drive_set(23_in, 70);
+  chassis.pid_drive_set(25_in, 70);
   pros::delay(1200);
   chassis.pid_turn_set(-133,100);
   pros::delay(500);
-  chassis.pid_drive_set(-19.5_in,80);
+  chassis.pid_drive_set(-29_in,80);
   pros::delay(1000);
   ScoreSwitcher.set(false);
   Scorer.move(-127);
@@ -429,7 +433,7 @@ void Left() {
   chassis.pid_turn_set(-125,100);
   ScoreSwitcher.set(true);
   pros::delay(500);
-  chassis.pid_drive_set(48_in,110);
+  chassis.pid_drive_set(45_in,110);
   Scorer.move(0);
   Channel.move(-127);
   pros::delay(2000);
@@ -437,13 +441,11 @@ void Left() {
   MatchLoader.set(true);
   Channel.move(-127);
   pros::delay(500);
-  chassis.pid_drive_set(26_in,127);
-  pros::delay(1100);
-  chassis.pid_turn_set(-182,110);
-  pros::delay(250);
-  chassis.pid_turn_set(-178,110);
-  pros::delay(250);
-  chassis.pid_drive_set(-28_in,110);
+  chassis.pid_drive_set(-8_in,127);
+  pros::delay(750);
+  chassis.pid_drive_set(42_in,127);
+  pros::delay(1800);
+  chassis.pid_drive_set(-36_in,110);
   pros::delay(500);
   Scorer.move(-127);
 
@@ -485,6 +487,6 @@ void AWPRightStart() {
 };
 
 void Skills(){
-  chassis.pid_drive_set(60,127);
+  chassis.pid_drive_set(6_in,127);
 
 };
