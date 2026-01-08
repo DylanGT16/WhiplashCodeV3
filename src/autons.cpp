@@ -494,7 +494,7 @@ void AWPRightStart() {
 };
 
 void Skills(){
-  chassis.pid_drive_set(32.5_in,127);
+  chassis.pid_drive_set(33_in,127);
   pros::delay(1000);
   ScoreSwitcher.set(true);
   Channel.move(-107);
