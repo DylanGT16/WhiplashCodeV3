@@ -9,6 +9,6 @@ extern Drive chassis;
 
 inline pros::Motor Channel(18);
 inline pros::Motor Scorer(13);
-inline ez::Piston MatchLoader('H');
+inline ez::Piston MatchLoader('C');
 inline ez::Piston ScoreSwitcher('A');
 inline ez::Piston DescoreWings('B');

@@ -8,12 +8,12 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-12, -11, -1},     // Left Chassis Ports (negative port will reverse it!)
+    {-11, -1, -12},     // Left Chassis Ports (negative port will reverse it!)
     {19, 10, 20},  // Right Chassis Ports (negative port will reverse it!)
 
     16,      // IMU Port
     3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
-    360);   // Wheel RPM = cartridge * (motor gear / wheel gear)
+    450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 // Uncomment the trackers you're using here!
 // - `8` and `9` are smart ports (making these negative will reverse the sensor)
@@ -21,7 +21,7 @@ ez::Drive chassis(
 // - `2.75` is the wheel diameter
 // - `4.0` is the distance from the center of the wheel to the center of the robot
 ez::tracking_wheel horiz_tracker(-9, 2, 2.5);  // This tracking wheel is perpendicular to the drive wheels
-ez::tracking_wheel vert_tracker(8, 2, 0.5);   // This tracking wheel is parallel to the drive wheels
+ez::tracking_wheel vert_tracker(17, 2, 0.5);   // This tracking wheel is parallel to the drive wheels
 
 /**
  * Runs initialization code. This occurs as soon as the program is started.
@@ -211,13 +211,6 @@ void ez_template_extras() {
     // PID Tuner
     // - after you find values that you're happy with, you'll have to set them in auton.cpp
 
-    // Enable / Disable PID Tuner
-    //  When enabled:
-    //  * use A and Y to increment / decrement the constants
-    //  * use the arrow keys to navigate the constants
-    if (master.get_digital_new_press(DIGITAL_X))
-      chassis.pid_tuner_toggle();
-
     // Trigger the selected autonomous routine
     if (master.get_digital(DIGITAL_LEFT)) {
       pros::motor_brake_mode_e_t preference = chassis.drive_brake_get();
@@ -284,15 +277,14 @@ void opcontrol() {
     }
     
     if (master.get_digital(DIGITAL_R1)) {
-      Scorer.move(-127);
+      Scorer.move(127);
     } 
     else if (master.get_digital(DIGITAL_R2)) {
-      Scorer.move(127);
+      Scorer.move(-127);
     } 
     else {
       Scorer.move(0);
     }
-
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }
