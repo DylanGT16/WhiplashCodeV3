@@ -277,10 +277,10 @@ void opcontrol() {
     }
     
     if (master.get_digital(DIGITAL_R1)) {
-      Scorer.move(127);
+      Scorer.move(-127);
     } 
     else if (master.get_digital(DIGITAL_R2)) {
-      Scorer.move(-127);
+      Scorer.move(127);
     } 
     else {
       Scorer.move(0);
