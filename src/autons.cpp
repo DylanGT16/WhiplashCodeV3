@@ -416,13 +416,13 @@ void Right() {
 void Left() {
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_drive_set(32_in,127);
-  pros::delay(1200);
+  chassis.pid_drive_set(36_in,127);
+  pros::delay(900);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
   MatchLoader.set(true);
   chassis.pid_drive_set(12,127);
-  pros::delay(1800);
+  pros::delay(1900);
   chassis.pid_drive_set(-36_in,127);
   pros::delay(800);
   Scorer.move(-127);
@@ -432,15 +432,15 @@ void Left() {
   chassis.pid_turn_set(135,110);
   pros::delay(500);
   Scorer.move(0);
-  chassis.pid_drive_set(20_in,127);
-  pros::delay(600);
+  chassis.pid_drive_set(30_in,127);
+  pros::delay(900);
   chassis.pid_turn_set(-45,110);
   pros::delay(500);
-  chassis.pid_drive_set(-6_in,127);
-  pros::delay(400);
+  chassis.pid_drive_set(-10_in,127);
+  pros::delay(700);
   ScoreSwitcher.set(false);
   Scorer.move(-127);
-  pros::delay(1300);
+  pros::delay(1500);
   chassis.pid_drive_set(-16_in,127);
   pros::delay(550);
   chassis.pid_turn_set(90,110);
