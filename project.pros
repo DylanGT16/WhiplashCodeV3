@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Left Auton",
+    "project_name": "Right Auton",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -424,9 +424,9 @@
       }
     },
     "upload_options": {
-      "description": "Left",
-      "icon": "pizza",
-      "slot": 1,
+      "description": "Right",
+      "icon": "X",
+      "slot": 2,
       "after": "none"
     },
     "use_early_access": false

@@ -444,7 +444,7 @@ void Left() {
   pros::delay(150);
   chassis.pid_turn_set(-45,110);
   pros::delay(550);
-  chassis.pid_drive_set(-15_in,127);
+  chassis.pid_drive_set(-16_in,127);
   pros::delay(900);
   ScoreSwitcher.set(false);
   Scorer.move(-127);
