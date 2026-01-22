@@ -245,6 +245,7 @@ void ez_template_extras() {
 void opcontrol() {
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
+  bool romeDaGoat = false;
 
   while (true) {
     // Gives you some extras to make EZ-Template ezier
@@ -261,10 +262,18 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     MatchLoader.button_toggle(master.get_digital(DIGITAL_RIGHT)); 
-    
-    DescoreWings.button_toggle(master.get_digital(DIGITAL_B)); 
-    
+        
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
+
+    if (master.get_digital(DIGITAL_B) && !romeDaGoat) {
+      DescoreWings.set(false); 
+      romeDaGoat = true;
+    } 
+    if (!master.get_digital(DIGITAL_B) && romeDaGoat) {
+      DescoreWings.set(true); 
+      romeDaGoat = false;
+    }
+
     
     if (master.get_digital(DIGITAL_L1)) {
       Channel.move(-127);

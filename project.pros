@@ -425,7 +425,7 @@
     },
     "upload_options": {
       "description": "Skills",
-      "icon": "planet",
+      "icon": "X",
       "slot": 3,
       "after": "none"
     },
