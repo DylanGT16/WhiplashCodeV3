@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Skills Auton",
+    "project_name": "States Skills Auton",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -425,8 +425,8 @@
     },
     "upload_options": {
       "description": "Right",
-      "icon": "X",
-      "slot": 4,
+      "icon": "ufo",
+      "slot": 3,
       "after": "none"
     },
     "use_early_access": false

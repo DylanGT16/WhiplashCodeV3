@@ -59,8 +59,8 @@ void initialize() {
   ez::as::auton_selector.autons_add({
     //{"Left", Left},
     //{"Right", Right},
-    //{"BackupRight", BackupRight},
-    {"Skills", Skills},
+    {"BackupRight", BackupRight},
+    //{"Skills", Skills},
 
 });
 
