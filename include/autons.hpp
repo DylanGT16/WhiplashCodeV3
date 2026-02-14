@@ -21,3 +21,4 @@ void Left();
 void Right();
 void BackupRight();
 void Skills();
+void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care();

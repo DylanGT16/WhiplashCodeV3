@@ -57,10 +57,11 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    //{"Left", Left},
+    {"Left", Left},
     //{"Right", Right},
-    {"BackupRight", BackupRight},
+    //{"BackupRight", BackupRight},
     //{"Skills", Skills},
+    //{"AWP Teammate", If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care}
 
 });
 

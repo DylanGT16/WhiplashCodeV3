@@ -424,7 +424,7 @@ void Right() {
 void Left() {
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_drive_set(32_in,127);
+  chassis.pid_drive_set(30.5_in,127);
   pros::delay(900);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
@@ -456,7 +456,7 @@ void Left() {
   ScoreSwitcher.set(false);
   Scorer.move(-127);
   pros::delay(1500);
-  chassis.pid_drive_set(35_in,127);
+  chassis.pid_drive_set(34_in,127);
   pros::delay(900);
   Channel.move(0);
   Scorer.move(0);
@@ -470,67 +470,72 @@ void Left() {
 void BackupRight() {
   //States Skills
   Channel.move(-127);
-  DescoreWings.set(true);
-  ScoreSwitcher.set(true);
-  chassis.pid_drive_set(31.5_in,127);
+  chassis.pid_drive_set(32.2_in,127);
   pros::delay(900);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
   MatchLoader.set(true);
-  chassis.pid_drive_set(12.3,110);
+  chassis.pid_drive_set(14.8,110);
   pros::delay(800);
   Channel.move(-127);
   pros::delay(1800);
-  chassis.pid_drive_set(-34_in,127);
-  pros::delay(850);
-  Scorer.move(-127);
-  pros::delay(2100);
-  chassis.pid_drive_set(29.5,127);
-  pros::delay(800);
-  chassis.pid_turn_set(85,110);
+  chassis.pid_turn_set(75,110);
+  pros::delay(900);
+  chassis.pid_turn_set(105,110);
+  pros::delay(900);
+  chassis.pid_turn_set(75,110);
+  pros::delay(900);
+  chassis.pid_drive_set(5_in,127);
   pros::delay(500);
-  chassis.pid_drive_set(95,110);
-  pros::delay(500);
+  chassis.pid_turn_set(105,110);
+  pros::delay(900);
+  chassis.pid_turn_set(75,110);
+  pros::delay(900);
+  chassis.pid_turn_set(105,110);
+  pros::delay(900);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
   chassis.pid_drive_set(-13,127);
   pros::delay(700);
+  MatchLoader.set(false);
+  Channel.move(127);
   chassis.pid_turn_set(45,110);
   pros::delay(500);
-  chassis.pid_drive_set(-17.5,127);
+  chassis.pid_drive_set(-14.86,127);
   pros::delay(800);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
-  chassis.pid_drive_set(31,127);
-  pros::delay(1100);
-  DescoreWings.set(false);
-  chassis.pid_drive_set(45,127);
-  pros::delay(1100);
+  chassis.pid_drive_set(77,127);
+  pros::delay(1600);
   chassis.pid_turn_set(0,110);
   pros::delay(500);
-  chassis.pid_drive_set(15.9,127);
+  chassis.pid_drive_set(16,127);
   pros::delay(800);
+  MatchLoader.set(true);
+  Channel.move(-127);
   chassis.pid_turn_set(-90,127);
   pros::delay(500);
   chassis.pid_drive_set(14,127);
   pros::delay(700);
-  chassis.pid_turn_set(-85,110);
-  pros::delay(500);
-  chassis.pid_turn_set(-95,110);
-  pros::delay(500);
-  chassis.pid_turn_set(-85,110);
-  pros::delay(500);
-  chassis.pid_turn_set(-95,110);
-  pros::delay(500);
-  chassis.pid_turn_set(-85,110);
-  pros::delay(500);
-  chassis.pid_turn_set(-95,110);
-  pros::delay(500);
+  chassis.pid_turn_set(-75,110);
+  pros::delay(900);
+  chassis.pid_turn_set(-105,110);
+  pros::delay(900);
+  chassis.pid_turn_set(-75,110);
+  pros::delay(900);
+  chassis.pid_turn_set(-105,110);
+  pros::delay(900);
+  chassis.pid_turn_set(-75,110);
+  pros::delay(900);
+  chassis.pid_turn_set(-105,110);
+  pros::delay(900);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
+  Channel.move(127);
   chassis.pid_drive_set(-7,127);
   pros::delay(500);
-  chassis.pid_turn_set(-155,110);
+  chassis.pid_turn_set(25,110);
+
 
   
 };
@@ -614,3 +619,8 @@ void Skills(){
 
 
   };
+
+void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care(){
+  chassis.pid_drive_set(4.5_in,127);
+
+};
