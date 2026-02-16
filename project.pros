@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "Left Auton",
+    "project_name": "Quick LEft",
     "target": "v5",
     "templates": {
       "EZ-Template": {
@@ -425,8 +425,8 @@
     },
     "upload_options": {
       "description": "Right",
-      "icon": "ufo",
-      "slot": 1,
+      "icon": "X",
+      "slot": 3,
       "after": "none"
     },
     "use_early_access": false

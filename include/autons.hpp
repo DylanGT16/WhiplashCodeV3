@@ -19,6 +19,8 @@ void measure_offsets();
 
 void Left();
 void Right();
-void BackupRight();
+void StatesSkills();
 void Skills();
 void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care();
+void QuickLeft();
+void QuickRight();
