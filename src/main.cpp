@@ -59,9 +59,9 @@ void initialize() {
   ez::as::auton_selector.autons_add({
     //{"Left", Left},
     //{"Right", Right},
-    {"QuickLeft", QuickLeft},
+    //{"QuickLeft", QuickLeft},
     //{"QuickRight", QuickRight},
-    //{"StatesSkills", StatesSkills},
+    {"StatesSkills", StatesSkills},
     //{"Skills", Skills},
     //{"AWP Teammate", If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care}
 });
