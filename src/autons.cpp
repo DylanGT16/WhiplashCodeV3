@@ -533,14 +533,14 @@ void StatesSkills() {
   chassis.pid_turn_set(90,110);
   pros::delay(500);
   MatchLoader.set(true);
-  chassis.pid_drive_set(14.2,80);
+  chassis.pid_drive_set(13.9,80);
   pros::delay(4000);
   chassis.pid_drive_set(-34,127);
   pros::delay(800);
   Scorer.move(-127);
   pros::delay(4000);
   Scorer.move(0);
-  chassis.pid_drive_set(29.6,80);
+  chassis.pid_drive_set(29.9,80);
   pros::delay(4000);
   chassis.pid_drive_set(-34,127);
   pros::delay(800);
@@ -548,11 +548,11 @@ void StatesSkills() {
   pros::delay(4000);
   chassis.pid_drive_set(17,127);
   pros::delay(700);
-  chassis.pid_turn_set(-20,110);
+  chassis.pid_turn_set(-15,110);
   pros::delay(500);
   MatchLoader.set(false);
   chassis.pid_drive_set(-94,127);
-  pros::delay(1900);
+  pros::delay(2700);
   chassis.pid_turn_set(180,110);
   pros::delay(700);
   chassis.pid_turn_set(0,110);
@@ -660,7 +660,7 @@ void Skills(){
 
   };
 
-void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care(){
+void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care_atp_because_winning_our_way_through_matches_is_pointless_with_people_like_riptide_and_bentc_against_us_and_oracle_btw(){
   chassis.pid_drive_set(4.5_in,127);
 
 };
