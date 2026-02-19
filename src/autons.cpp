@@ -379,7 +379,7 @@ void measure_offsets() {
 void QuickLeft(){
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_drive_set(31_in,127);
+  chassis.pid_drive_set(33_in,127);
   pros::delay(900);
   MatchLoader.set(true);
   chassis.pid_turn_set(-90,110);
@@ -395,11 +395,11 @@ void QuickLeft(){
   chassis.pid_turn_set(135,110);
   pros::delay(550);
   MatchLoader.set(false);
-  chassis.pid_drive_set(13.8_in,127);
-  pros::delay(800);
+  chassis.pid_drive_set(21.3_in,127);
+  pros::delay(1000);
   chassis.pid_turn_set(-90,110);
   pros::delay(600);
-  chassis.pid_drive_set(-33_in,127);
+  chassis.pid_drive_set(-30_in,127);
 
 
 };
@@ -407,8 +407,8 @@ void QuickLeft(){
 void QuickRight(){
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_drive_set(31_in,127);
-  pros::delay(900);
+  chassis.pid_drive_set(33_in,127);
+  pros::delay(1050);
   MatchLoader.set(true);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
@@ -423,11 +423,11 @@ void QuickRight(){
   chassis.pid_turn_set(-135,110);
   pros::delay(550);
   MatchLoader.set(false);
-  chassis.pid_drive_set(13.8_in,127);
-  pros::delay(800);
+  chassis.pid_drive_set(21.3_in,127);
+  pros::delay(1000);
   chassis.pid_turn_set(-90,110);
   pros::delay(600);
-  chassis.pid_drive_set(33_in,127);
+  chassis.pid_drive_set(23_in,127);
 
 
 };
@@ -479,9 +479,9 @@ void Left() {
   Channel.move(-127);
   chassis.pid_drive_set(30.5_in,127);
   pros::delay(900);
+  MatchLoader.set(true);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
-  MatchLoader.set(true);
   chassis.pid_drive_set(13.5,127);
   pros::delay(1550);
   chassis.pid_drive_set(-36_in,127);
@@ -490,7 +490,7 @@ void Left() {
   pros::delay(2400);
   Scorer.move(127);
   Channel.move(60);
-  chassis.pid_drive_set(17.5_in,127);
+  chassis.pid_drive_set(16.7_in,127);
   pros::delay(850);
   chassis.pid_turn_set(135,110);
   pros::delay(550);
@@ -509,7 +509,7 @@ void Left() {
   ScoreSwitcher.set(false);
   Scorer.move(-127);
   pros::delay(1500);
-  chassis.pid_drive_set(34_in,127);
+  chassis.pid_drive_set(35.2_in,127);
   pros::delay(900);
   Channel.move(0);
   Scorer.move(0);
