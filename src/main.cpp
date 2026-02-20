@@ -248,7 +248,8 @@ void opcontrol() {
   // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
   bool romeDaGoat = false;
-
+  float TargetPos = 150;
+  float Kp = 0.2;
   while (true) {
     // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
@@ -267,35 +268,32 @@ void opcontrol() {
         
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
 
-    if (master.get_digital(DIGITAL_B) && !romeDaGoat) {
-      DescoreWings.set(false); 
-      romeDaGoat = true;
+    float CurrentPos = Scorer.get_position();
+
+    float error = TargetPos - CurrentPos;
+    float Volt = Kp * error;
+
+
+    if (master.get_digital(DIGITAL_R1) && TargetPos == 150) {
+      Scorer.move(Volt); 
+      TargetPos = 0;
     } 
-    if (!master.get_digital(DIGITAL_B) && romeDaGoat) {
-      DescoreWings.set(true); 
-      romeDaGoat = false;
+    if (!master.get_digital(DIGITAL_R2) && TargetPos == 0) {
+      Scorer.move(Volt); 
+      TargetPos = 150;
     }
 
     
     if (master.get_digital(DIGITAL_L1)) {
-      Channel.move(-127);
+      Channel.move(127);
     } 
     else if (master.get_digital(DIGITAL_L2)) {
-      Channel.move(127);
+      Channel.move(-127);
     } 
     else {
       Channel.move(0);
     }
     
-    if (master.get_digital(DIGITAL_R1)) {
-      Scorer.move(-127);
-    } 
-    else if (master.get_digital(DIGITAL_R2)) {
-      Scorer.move(127);
-    } 
-    else {
-      Scorer.move(0);
-    }
     pros::delay(ez::util::DELAY_TIME);  // This is used for timer calculations!  Keep this ez::util::DELAY_TIME
   }
 }
