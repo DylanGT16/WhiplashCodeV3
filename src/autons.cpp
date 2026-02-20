@@ -379,7 +379,7 @@ void measure_offsets() {
 void QuickLeft(){
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_drive_set(33_in,127);
+  chassis.pid_drive_set(31_in,127);
   pros::delay(900);
   MatchLoader.set(true);
   chassis.pid_turn_set(-90,110);
@@ -407,7 +407,7 @@ void QuickLeft(){
 void QuickRight(){
   ScoreSwitcher.set(true);
   Channel.move(-127);
-  chassis.pid_drive_set(33_in,127);
+  chassis.pid_drive_set(31_in,127);
   pros::delay(1050);
   MatchLoader.set(true);
   chassis.pid_turn_set(90,110);
@@ -543,14 +543,23 @@ void StatesSkills() {
   pros::delay(4000);
   chassis.pid_drive_set(17,127);
   pros::delay(700);
-  chassis.pid_turn_set(-15,110);
+  chassis.pid_turn_set(-135,110);
+  pros::delay(550);
+  chassis.pid_drive_set(13.8,127);
+  pros::delay(800);
+  chassis.pid_turn_set(90,110);
   pros::delay(500);
-  MatchLoader.set(false);
-  chassis.pid_drive_set(-94,127);
-  pros::delay(2700);
+  chassis.pid_drive_set(-30_in,127);
+  pros::delay(800);
+  chassis.pid_drive_set(37,127);
+  pros::delay(800);
   chassis.pid_turn_set(180,110);
-  pros::delay(700);
-  chassis.pid_turn_set(0,110);
+  pros::delay(550);
+  chassis.pid_drive_set(22,127);
+  pros::delay(800);
+  chassis.pid_turn_set(-90,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-20,127);
 
 
 
