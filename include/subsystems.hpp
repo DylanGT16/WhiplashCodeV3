@@ -7,8 +7,8 @@ extern Drive chassis;
 
 // Your motors, sensors, etc. should go here.  Below are examples
 
-inline pros::Motor Channel(-9);
-inline pros::Motor Scorer(-1);
+inline pros::Motor Channel(9);
+inline pros::Motor Scorer(11);
 inline ez::Piston MatchLoader('H');
 inline ez::Piston ScoreSwitcher('A');
 inline ez::Piston DescoreWings('B');

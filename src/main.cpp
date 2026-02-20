@@ -8,11 +8,11 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-11, -1, -12},     // Left Chassis Ports (negative port will reverse it!)
-    {19, 20, 10},  // Right Chassis Ports (negative port will reverse it!)
+    {-20, -15, 16},     // Left Chassis Ports (negative port will reverse it!)
+    {14, 12, -13},  // Right Chassis Ports (negative port will reverse it!)
 
-    16,      // IMU Port
-    3.25,  // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
+    1,      // IMU Port
+    3.25, // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
 // Uncomment the trackers you're using here!
@@ -57,10 +57,10 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    //{"Left", Left},
+    {"Left", Left},
     //{"Right", Right},
     //{"QuickLeft", QuickLeft},
-    {"QuickRight", QuickRight},
+    //{"QuickRight", QuickRight},
     //{"StatesSkills", StatesSkills},
     //{"Skills", Skills},
     //{"AWP Teammate", If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care_atp_because_winning_our_way_through_matches_is_pointless_with_people_like_riptide_and_bentc_against_us_and_oracle_btw}
@@ -268,19 +268,20 @@ void opcontrol() {
         
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
 
-    float CurrentPos = Scorer.get_position();
+    //float CurrentPos = Scorer.get_position();
 
-    float error = TargetPos - CurrentPos;
-    float Volt = Kp * error;
+    //float error = TargetPos - CurrentPos;
+    //float Volt = Kp * error;
 
 
-    if (master.get_digital(DIGITAL_R1) && TargetPos == 150) {
-      Scorer.move(Volt); 
-      TargetPos = 0;
+    if (master.get_digital(DIGITAL_R1)) {
+      Scorer.move_absolute(150,127); 
     } 
-    if (!master.get_digital(DIGITAL_R2) && TargetPos == 0) {
-      Scorer.move(Volt); 
-      TargetPos = 150;
+    else if (master.get_digital(DIGITAL_R2)) {
+      Scorer.move_absolute(0,127); 
+    }
+    else {
+      Scorer.move(0);
     }
 
     
