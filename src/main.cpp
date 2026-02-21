@@ -8,8 +8,8 @@
 // Chassis constructor
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
-    {-20, -15, 16},     // Left Chassis Ports (negative port will reverse it!)
-    {14, 12, -13},  // Right Chassis Ports (negative port will reverse it!)
+    {-20, -15, -16},     // Left Chassis Ports (negative port will reverse it!)
+    {14, 12, 13},  // Right Chassis Ports (negative port will reverse it!)
 
     1,      // IMU Port
     3.25, // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -275,7 +275,7 @@ void opcontrol() {
 
 
     if (master.get_digital(DIGITAL_R1)) {
-      Scorer.move_absolute(150,127); 
+      Scorer.move_absolute(310,127); 
     } 
     else if (master.get_digital(DIGITAL_R2)) {
       Scorer.move_absolute(0,127); 
