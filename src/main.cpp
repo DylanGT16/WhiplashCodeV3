@@ -265,7 +265,9 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     MatchLoader.button_toggle(master.get_digital(DIGITAL_RIGHT)); 
-        
+
+    Hood.button_toggle(master.get_digital(DIGITAL_B));
+    
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
 
     if (master.get_digital(DIGITAL_R1)) {
@@ -274,8 +276,6 @@ void opcontrol() {
     else {
       Lever.move_absolute(0,127);
     }
-
-  
     
     if (master.get_digital(DIGITAL_L1)) {
       Channel.move(127);
