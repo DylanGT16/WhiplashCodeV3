@@ -269,10 +269,10 @@ void opcontrol() {
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
 
     if (master.get_digital(DIGITAL_R1)) {
-      Scorer.move_absolute(350,127);
+      Lever.move_absolute(350,127);
     }
     else {
-      Scorer.move_absolute(0,127);
+      Lever.move_absolute(0,127);
     }
 
   
