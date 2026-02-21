@@ -273,6 +273,7 @@ void opcontrol() {
     //float error = TargetPos - CurrentPos;
     //float Volt = Kp * error;
 
+    Scorer.set_brake_mode(MOTOR_BRAKE_HOLD);
 
     if (master.get_digital(DIGITAL_R1)) {
       Scorer.move_absolute(310,127); 
