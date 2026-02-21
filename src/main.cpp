@@ -9,7 +9,7 @@
 ez::Drive chassis(
     // These are your drive motors, the first motor is used for sensing!
     {-20, -15, -16},     // Left Chassis Ports (negative port will reverse it!)
-    {14, 12, 13},  // Right Chassis Ports (negative port will reverse it!)
+    {14, 12, 18},  // Right Chassis Ports (negative port will reverse it!)
 
     1,      // IMU Port
     3.25, // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
@@ -268,23 +268,14 @@ void opcontrol() {
         
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
 
-    //float CurrentPos = Scorer.get_position();
-
-    //float error = TargetPos - CurrentPos;
-    //float Volt = Kp * error;
-
-    Scorer.set_brake_mode(MOTOR_BRAKE_HOLD);
-
     if (master.get_digital(DIGITAL_R1)) {
-      Scorer.move_absolute(310,127); 
-    } 
-    else if (master.get_digital(DIGITAL_R2)) {
-      Scorer.move_absolute(0,127); 
+      Scorer.move_absolute(350,127);
     }
     else {
-      Scorer.move(0);
+      Scorer.move_absolute(0,127);
     }
 
+  
     
     if (master.get_digital(DIGITAL_L1)) {
       Channel.move(127);
