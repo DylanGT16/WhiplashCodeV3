@@ -381,7 +381,7 @@ void measure_offsets() {
 
 void QuickLeft(){
   ScoreSwitcher.set(true);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_drive_set(31_in,127);
   pros::delay(900);
   MatchLoader.set(true);
@@ -410,7 +410,7 @@ void QuickLeft(){
 
 void QuickRight(){
   ScoreSwitcher.set(true);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_drive_set(31_in,127);
   pros::delay(1050);
   MatchLoader.set(true);
@@ -439,7 +439,7 @@ void QuickRight(){
 
 void Right() {
   ScoreSwitcher.set(true);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_turn_set(18,110);
   pros::delay(500);
   chassis.pid_drive_set(27_in,100);
@@ -456,7 +456,7 @@ void Right() {
   pros::delay(500);
   chassis.pid_drive_set(-21_in,127);
   pros::delay(800);
-  Channel.move(-127);
+  Channel.move(127);
   Lever.move_absolute(350,127);
   pros::delay(1900);
   MatchLoader.set(true);
@@ -482,7 +482,7 @@ void Right() {
 
 void Left() {
   ScoreSwitcher.set(true);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_drive_set(30.5_in,127);
   pros::delay(900);
   MatchLoader.set(true);
@@ -502,7 +502,7 @@ void Left() {
   pros::delay(550);
   MatchLoader.set(false);
   Lever.move_absolute(0,127);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_drive_set(37.5_in,73);
   pros::delay(1500);
   MatchLoader.set(true);
@@ -528,13 +528,13 @@ void Left() {
 
 void StatesSkills() {
   ScoreSwitcher.set(true);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_drive_set(31.7_in,127);
   pros::delay(900);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
   MatchLoader.set(true);
-  chassis.pid_drive_set(13.9,80);
+  chassis.pid_drive_set(13.1,80);
   pros::delay(4000);
   chassis.pid_drive_set(-34,127);
   pros::delay(800);
@@ -570,7 +570,7 @@ void StatesSkills() {
 };
 
 void Skills(){
-  Channel.move(-127);
+  Channel.move(127);
   ScoreSwitcher.set(true);
   chassis.pid_drive_set(31.5_in,127);
   pros::delay(900);
@@ -579,7 +579,7 @@ void Skills(){
   MatchLoader.set(true);
   chassis.pid_drive_set(12.3,110);
   pros::delay(800);
-  Channel.move(-127);
+  Channel.move(127);
   pros::delay(1800);
   chassis.pid_drive_set(-34_in,127);
   pros::delay(850);
@@ -605,12 +605,12 @@ void Skills(){
   pros::delay(800);
   chassis.pid_turn_set(-90,127);
   pros::delay(500);
-  Channel.move(-127);
+  Channel.move(127);
   chassis.pid_drive_set(17,127);
   pros::delay(1800);
   chassis.pid_drive_set(-34,127);
   pros::delay(900);
-  Channel.move(-127);
+  Channel.move(127);
   Lever.move_absolute(350,127);
   pros::delay(2500);
   Lever.move_absolute(0,127);
@@ -620,7 +620,7 @@ void Skills(){
   chassis.pid_drive_set(-34,127);
   pros::delay(800);
   Lever.move_absolute(350,127);
-  Channel.move(-127);
+  Channel.move(127);
   pros::delay(2900);
   chassis.pid_drive_set(14.5,127);
   pros::delay(650);
@@ -639,7 +639,7 @@ void Skills(){
   Channel.move(0);
   chassis.pid_drive_set(-34_in,127);
   pros::delay(950);
-  Channel.move(-127);
+  Channel.move(127);
   Lever.move_absolute(350,127);
   pros::delay(1900);
   Lever.move_absolute(0,127);
