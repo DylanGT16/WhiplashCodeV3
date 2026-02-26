@@ -272,12 +272,15 @@ void opcontrol() {
 
     if (master.get_digital(DIGITAL_R1)) {
       Lever.move_absolute(650,127);
+      Hood.set(true);
     }
     else if (master.get_digital(DIGITAL_R2)) {
       Lever.move_absolute(650,64);
+      Hood.set(true);
     }
     else {
       Lever.move_absolute(0,127);
+      Hood.set(false);
     }
 
     if (master.get_digital(DIGITAL_L1)) {
