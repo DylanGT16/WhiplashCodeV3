@@ -265,22 +265,23 @@ void opcontrol() {
     // Put more user control code here!
     // . . .
     MatchLoader.button_toggle(master.get_digital(DIGITAL_RIGHT)); 
-
-    Hood.button_toggle(master.get_digital(DIGITAL_B));
     
     ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
 
     if (master.get_digital(DIGITAL_R1)) {
-      Lever.move_absolute(650,127);
       Hood.set(true);
+      pros::delay(200);
+      Lever.move_absolute(650,127);
     }
     else if (master.get_digital(DIGITAL_R2)) {
-      Lever.move_absolute(650,64);
       Hood.set(true);
+      pros::delay(200);
+      Lever.move_absolute(650,64);
     }
     else {
-      Lever.move_absolute(0,127);
       Hood.set(false);
+      pros::delay(200);
+      Lever.move_absolute(0,127);
     }
 
     if (master.get_digital(DIGITAL_L1)) {
