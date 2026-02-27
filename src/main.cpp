@@ -280,7 +280,6 @@ void opcontrol() {
     }
     else {
       Hood.set(false);
-      pros::delay(200);
       Lever.move_absolute(0,127);
     }
 

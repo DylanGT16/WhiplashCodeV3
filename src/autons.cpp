@@ -529,26 +529,26 @@ void Left() {
 void StatesSkills() {
   ScoreSwitcher.set(true);
   Channel.move(127);
-  chassis.pid_drive_set(32.8_in,127);
+  chassis.pid_drive_set(32.2_in,127);
   pros::delay(900);
   MatchLoader.set(true);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
-  chassis.pid_drive_set(12.7,80);
+  chassis.pid_drive_set(12.4,80);
   pros::delay(2500);
   chassis.pid_drive_set(-15,127);
   pros::delay(700);
   chassis.pid_turn_set(135,110);
   pros::delay(550);
-  chassis.pid_drive_set(17.5,127);
+  chassis.pid_drive_set(-17.5,127);
   pros::delay(800);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
-  chassis.pid_drive_set(67_in,127);
+  chassis.pid_drive_set(-67_in,127);
   pros::delay(1200);
-  chassis.pid_turn_set(-180,110);
+  chassis.pid_turn_set(180,110);
   pros::delay(550);
-  chassis.pid_drive_set(17.3,127);
+  chassis.pid_drive_set(14.8,127);
   pros::delay(800);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
@@ -556,7 +556,7 @@ void StatesSkills() {
   Hood.set(true);
   pros::delay(750);
   Lever.move_absolute(650,127);
-  pros::delay(1000);
+  pros::delay(1200);
   Lever.move_absolute(0,127);
   Hood.set(false);
   chassis.pid_drive_set(30.5,80);
@@ -565,7 +565,7 @@ void StatesSkills() {
   Hood.set(true);
   pros::delay(800);
   Lever.move_absolute(650,127);
-  pros::delay(1000);
+  pros::delay(1200);
   Lever.move_absolute(0,127);
 };
 
