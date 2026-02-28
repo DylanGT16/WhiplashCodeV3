@@ -529,13 +529,23 @@ void Left() {
 void StatesSkills() {
   ScoreSwitcher.set(true);
   Channel.move(127);
-  chassis.pid_drive_set(32.2_in,127);
+  chassis.pid_drive_set(31.9_in,127);
   pros::delay(900);
   MatchLoader.set(true);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
-  chassis.pid_drive_set(12.4,80);
-  pros::delay(2500);
+  chassis.pid_drive_set(10,80);
+  pros::delay(2000);
+  chassis.pid_drive_set(-4,127);
+  pros::delay(500);
+  chassis.pid_drive_set(6.5,127);
+  pros::delay(900);
+  chassis.pid_turn_set(85,127);
+  pros::delay(1500);
+  chassis.pid_turn_set(95,127);
+  pros::delay(1500);
+  chassis.pid_turn_set(90,127);
+  pros::delay(1500);
   chassis.pid_drive_set(-15,127);
   pros::delay(700);
   chassis.pid_turn_set(135,110);
@@ -544,11 +554,11 @@ void StatesSkills() {
   pros::delay(800);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
-  chassis.pid_drive_set(-67_in,127);
-  pros::delay(1200);
+  chassis.pid_drive_set(-74_in,127);
+  pros::delay(1300);
   chassis.pid_turn_set(180,110);
   pros::delay(550);
-  chassis.pid_drive_set(14.8,127);
+  chassis.pid_drive_set(13,127);
   pros::delay(800);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
@@ -561,12 +571,39 @@ void StatesSkills() {
   Hood.set(false);
   chassis.pid_drive_set(30.5,80);
   pros::delay(2700);
+  chassis.pid_drive_set(-4,127);
+  pros::delay(500);
+  chassis.pid_drive_set(6.5,127);
+  pros::delay(900);
+  chassis.pid_turn_set(85,127);
+  pros::delay(1500);
+  chassis.pid_turn_set(95,127);
+  pros::delay(1500);
+  chassis.pid_turn_set(90,127);
+  pros::delay(1500);
   chassis.pid_drive_set(-33,127);
   Hood.set(true);
   pros::delay(800);
   Lever.move_absolute(650,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
+  chassis.pid_drive_set(17,127);
+  pros::delay(800);
+  chassis.pid_turn_set(135,110);
+  pros::delay(600);
+  chassis.pid_drive_set(17.5,127);
+  pros::delay(800);
+  chassis.pid_turn_set(90,110);
+  pros::delay(500);
+  chassis.pid_drive_set(67,127);
+  pros::delay(1200);
+  chassis.pid_turn_set(0,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-30,127);
+  pros::delay(900);
+  chassis.pid_turn_set(-90,127);
+  pros::delay(500);
+  chassis.pid_drive_set(-25,127);
 };
 
 void Skills(){
@@ -668,6 +705,7 @@ void Skills(){
   };
 
 void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care_atp_because_winning_our_way_through_matches_is_pointless_with_people_like_riptide_and_bentc_against_us_and_oracle_btw(){
-  chassis.pid_drive_set(4.5_in,127);
+  chassis.pid_drive_set(8.5_in,127);
+  Channel.move(127);
 
 };
