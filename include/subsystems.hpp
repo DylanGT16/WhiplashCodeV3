@@ -12,3 +12,4 @@ inline pros::Motor Lever(11);
 inline ez::Piston MatchLoader('C');
 inline ez::Piston ScoreSwitcher('A');
 inline ez::Piston Hood('B');
+inline ez::Piston DescoreWing('H');
