@@ -451,6 +451,7 @@ void Right() {
   pros::delay(500);
   chassis.pid_drive_set(12.4,80);
   pros::delay(1100);
+  Hood.set(true);
   chassis.pid_drive_set(-33,127);
   pros::delay(800);
   Lever.move_absolute(650,127);
@@ -570,7 +571,7 @@ void Skills(){
   pros::delay(1300);
   chassis.pid_turn_set(180,110);
   pros::delay(550);
-  chassis.pid_drive_set(12.6,127);
+  chassis.pid_drive_set(12.65,127);
   pros::delay(800);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
@@ -612,12 +613,13 @@ void Skills(){
   chassis.pid_turn_set(0,110);
   pros::delay(500);
   Channel.move(-127);
-  chassis.pid_drive_set(-99,127);
-  pros::delay(1900);
+  Hood.set(false);
+  chassis.pid_drive_set(-94,127);
+  pros::delay(1800);
   Channel.move(127);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
-  chassis.pid_drive_set(21,127);
+  chassis.pid_drive_set(17.5,127);
   pros::delay(2700);
   chassis.pid_drive_set(-4,127);
   pros::delay(500);
@@ -635,7 +637,7 @@ void Skills(){
   pros::delay(1300);
   chassis.pid_turn_set(0,110);
   pros::delay(550);
-  chassis.pid_drive_set(12.6,127);
+  chassis.pid_drive_set(12.65,127);
   pros::delay(800);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
@@ -646,10 +648,15 @@ void Skills(){
   Lever.move_absolute(650,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
+  pros::delay(800);  
+  Lever.move_absolute(650,127);
+  pros::delay(1200);
+  Lever.move_absolute(0,127);
+  pros::delay(800);
   chassis.pid_drive_set(5,127);
   pros::delay(650);
   Hood.set(false);
-  chassis.pid_turn_set(92,110);
+  chassis.pid_turn_set(87,110);
   pros::delay(500);
   chassis.pid_drive_set(25.5,80);
   pros::delay(2700);
@@ -664,6 +671,16 @@ void Skills(){
   Lever.move_absolute(650,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
+  MatchLoader.set(false);
+  chassis.pid_drive_set(13_in,127);
+  pros::delay(700);
+  chassis.pid_turn_set(0,110);
+  pros::delay(550);
+  chassis.pid_drive_set(38,127);
+  pros::delay(900);
+  chassis.pid_turn_set(-90,110);
+  pros::delay(550);
+  chassis.pid_drive_set(-30,127);
   };
 
 void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care_atp_because_winning_our_way_through_matches_is_pointless_with_people_like_riptide_and_bentc_against_us_and_oracle_btw(){
