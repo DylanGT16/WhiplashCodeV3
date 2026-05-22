@@ -381,29 +381,35 @@ void measure_offsets() {
 
 void QuickLeft(){
   ScoreSwitcher.set(true);
+  Hood.set(true);
   Channel.move(127);
-  chassis.pid_drive_set(31_in,127);
+  chassis.pid_drive_set(32.5_in,127);
   pros::delay(900);
   MatchLoader.set(true);
   chassis.pid_turn_set(-90,110);
-  pros::delay(500);
-  chassis.pid_drive_set(13.25,127);
-  pros::delay(1550);
+  pros::delay(550);
+  chassis.pid_drive_set(12.65,127);
+  pros::delay(1000);
   chassis.pid_drive_set(-34_in,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
-  pros::delay(2000);
-  chassis.pid_drive_set(17.5_in,127);
-  pros::delay(850);
-  chassis.pid_turn_set(135,110);
-  pros::delay(550);
-  MatchLoader.set(false);
-  chassis.pid_drive_set(21.3_in,127);
-  pros::delay(1000);
-  chassis.pid_turn_set(-90,110);
-  pros::delay(600);
-  chassis.pid_drive_set(-30_in,127);
+  Lever.move_absolute(800,127);
+  pros::delay(1200);
   Lever.move_absolute(0,127);
+  pros::delay(800);
+  Lever.move_absolute(800,127);
+  pros::delay(1200);
+  Lever.move_absolute(0,127);
+  chassis.pid_drive_set(10.5_in,127);
+  pros::delay(850);
+  chassis.pid_turn_set(-135,110);
+  pros::delay(500);
+  MatchLoader.set(false);
+  chassis.pid_drive_set(-15.25_in,127);
+  pros::delay(800);
+  chassis.pid_turn_set(-90,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-22_in,127);
+
 
 
 };
@@ -417,28 +423,66 @@ void QuickRight(){
   chassis.pid_turn_set(90,110);
   pros::delay(500);
   chassis.pid_drive_set(13.25,127);
-  pros::delay(1550);
+  pros::delay(900);
   chassis.pid_drive_set(-34_in,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
-  pros::delay(2400);
+  Lever.move_absolute(800,127);
+  pros::delay(1200);
+  Lever.move_absolute(0,127);
   chassis.pid_drive_set(17.5_in,127);
   pros::delay(850);
-  chassis.pid_turn_set(-135,110);
+  chassis.pid_turn_set(45,110);
   pros::delay(550);
   MatchLoader.set(false);
-  chassis.pid_drive_set(21.3_in,127);
+  chassis.pid_drive_set(-21.3_in,127);
   pros::delay(1000);
-  chassis.pid_turn_set(-90,110);
+  chassis.pid_turn_set(90,110);
   pros::delay(600);
-  chassis.pid_drive_set(23_in,127);
-  Lever.move_absolute(0,127);
+  chassis.pid_drive_set(-23_in,127);
+
 
 
 };
 
 void Left(){
-
+  ScoreSwitcher.set(true);
+  Channel.move(127);
+  chassis.pid_turn_set(-21,110);
+  pros::delay(450);
+  chassis.pid_drive_set(37_in,127);
+  pros::delay(750);
+  MatchLoader.set(true);
+  pros::delay(300);
+  chassis.pid_drive_set(-4,127);
+  pros::delay(350);
+  chassis.pid_turn_set(-145,110);
+  pros::delay(550);
+  chassis.pid_drive_set(38,127);
+  pros::delay(900);
+  chassis.pid_turn_set(-180,110);
+  pros::delay(500);
+  Hood.set(true);
+  chassis.pid_drive_set(-25,127);
+  pros::delay(800);
+  Lever.move_absolute(1000,127);
+  pros::delay(1600);
+  Lever.move_absolute(0,127);
+  chassis.pid_drive_set(32.5,127);
+  pros::delay(1300);
+  chassis.pid_drive_set(-33,127);
+  pros::delay(800);
+  Lever.move_absolute(800,127);
+  pros::delay(1200);
+  Lever.move_absolute(0,127);
+  chassis.pid_drive_set(10,127);
+  pros::delay(500);
+  chassis.pid_turn_set(135,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-17,127);
+  pros::delay(800);
+  chassis.pid_turn_set(180,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-20,127);
   };
 
 void Right() {
@@ -449,27 +493,35 @@ void Right() {
   chassis.pid_drive_set(34_in,127);
   pros::delay(650);
   MatchLoader.set(true);
-  DescoreWing.set(true);
   pros::delay(300);
   chassis.pid_turn_set(145,110);
   pros::delay(550);
-  chassis.pid_drive_set(34,127);
-  pros::delay(800);
+  chassis.pid_drive_set(36,127);
+  pros::delay(880);
   chassis.pid_turn_set(180,110);
   pros::delay(500);
   Hood.set(true);
-  chassis.pid_drive_set(-17,127);
+  chassis.pid_drive_set(-19,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
-  chassis.pid_drive_set(31.5,127);
-  pros::delay(1100);
+  chassis.pid_drive_set(30.5,127);
+  pros::delay(1300);
   chassis.pid_drive_set(-33,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
+  chassis.pid_drive_set(10,127);
+  pros::delay(500);
+  chassis.pid_turn_set(135,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-15.25_in,127);
+  pros::delay(800);
+  chassis.pid_turn_set(180,110);
+  pros::delay(500);
+  chassis.pid_drive_set(-22_in,127);
 };
 
 void StatesSkills() {
@@ -509,7 +561,7 @@ void StatesSkills() {
   pros::delay(750);
   Hood.set(true);
   pros::delay(200);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   chassis.pid_drive_set(5,127);
@@ -531,11 +583,11 @@ void StatesSkills() {
   pros::delay(200);
   Hood.set(true);
   pros::delay(200);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   chassis.pid_drive_set(17,127);
@@ -584,7 +636,7 @@ void Skills(){
   pros::delay(1300);
   chassis.pid_turn_set(180,110);
   pros::delay(550);
-  chassis.pid_drive_set(12.8,127);
+  chassis.pid_drive_set(11.7,127);
   pros::delay(800);
   chassis.pid_turn_set(-90,110);
   pros::delay(500);
@@ -592,18 +644,16 @@ void Skills(){
   pros::delay(750);
   Hood.set(true);
   pros::delay(200);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   chassis.pid_drive_set(5,127);
-  pros::delay(2000);
+  pros::delay(650);
   Hood.set(false);
-  chassis.pid_turn_set(-93,110);
-  pros::delay(500);
   chassis.pid_drive_set(25.5,80);
   pros::delay(2700);
   chassis.pid_drive_set(-4,127);
@@ -614,11 +664,11 @@ void Skills(){
   pros::delay(800);
   Hood.set(true);
   pros::delay(200);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   pros::delay(800);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   chassis.pid_drive_set(13,127);
@@ -650,7 +700,7 @@ void Skills(){
   pros::delay(1300);
   chassis.pid_turn_set(0,110);
   pros::delay(550);
-  chassis.pid_drive_set(12.8,127);
+  chassis.pid_drive_set(11.7,127);
   pros::delay(800);
   chassis.pid_turn_set(90,110);
   pros::delay(500);
@@ -658,19 +708,17 @@ void Skills(){
   pros::delay(750);
   Hood.set(true);
   pros::delay(200);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   pros::delay(800);  
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   pros::delay(800);
   chassis.pid_drive_set(5,127);
   pros::delay(650);
   Hood.set(false);
-  chassis.pid_turn_set(87,110);
-  pros::delay(500);
   chassis.pid_drive_set(25.5,80);
   pros::delay(2700);
   chassis.pid_drive_set(-4,127);
@@ -681,7 +729,7 @@ void Skills(){
   pros::delay(800);
   Hood.set(true);
   pros::delay(200);
-  Lever.move_absolute(650,127);
+  Lever.move_absolute(800,127);
   pros::delay(1200);
   Lever.move_absolute(0,127);
   MatchLoader.set(false);
@@ -693,7 +741,7 @@ void Skills(){
   pros::delay(1200);
   chassis.pid_turn_set(-90,110);
   pros::delay(550);
-  chassis.pid_drive_set(-30,127);
+  chassis.pid_drive_set(-50,127);
   };
 
 void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care_atp_because_winning_our_way_through_matches_is_pointless_with_people_like_riptide_and_bentc_against_us_and_oracle_btw(){
@@ -701,3 +749,12 @@ void If_they_have_an_AWP_which_wont_work_half_the_time_but_I_dont_care_atp_becau
   Channel.move(127);
 
 };
+
+
+
+
+
+
+
+
+//                                                                                                                                                                                                                                                                                   None of you guys will see this because I am the only coder so I wanted to say I love you all and I will be secretly working on the notebook everyday of April and writing my pid testing autons. If you find this I will be astounded

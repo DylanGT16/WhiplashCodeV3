@@ -1,34 +1,19 @@
 #include "main.h"
 
-/////
-// For installation, upgrading, documentations, and tutorials, check out our website!
-// https://ez-robotics.github.io/EZ-Template/
-/////
-
 // Chassis constructor
 ez::Drive chassis(
-    // These are your drive motors, the first motor is used for sensing!
-    {-20, -15, -16},     // Left Chassis Ports (negative port will reverse it!)
-    {14, 12, 18},  // Right Chassis Ports (negative port will reverse it!)
+    {-20, -15, -16},     // Left Chassis Ports
+    {14, 12, 18},  // Right Chassis Ports
 
-    1,      // IMU Port
-    3.25, // Wheel Diameter (Remember, 4" wheels without screw holes are actually 4.125!)
+    1,      // IMU
+    3.25, // Wheel Diameter
     450);   // Wheel RPM = cartridge * (motor gear / wheel gear)
 
-// Uncomment the trackers you're using here!
-// - `8` and `9` are smart ports (making these negative will reverse the sensor)
-//  - you should get positive values on the encoders going FORWARD and RIGHT
-// - `2.75` is the wheel diameter
-// - `4.0` is the distance from the center of the wheel to the center of the robot
-ez::tracking_wheel horiz_tracker(-9, 2, 2.5);  // This tracking wheel is perpendicular to the drive wheels
-ez::tracking_wheel vert_tracker(17, 2, 0.5);   // This tracking wheel is parallel to the drive wheels
+// Making 8 and 9 negative will reverse the sensor
+// Port, Wheel Diameter, Distance to Center
+ez::tracking_wheel horiz_tracker(-9, 2, 2.5);  // Perpendicular
+ez::tracking_wheel vert_tracker(17, 2, 0.5);   // Parallel
 
-/**
- * Runs initialization code. This occurs as soon as the program is started.
- *
- * All other competition modes are blocked by initialize; it is recommended
- * to keep execution time for this mode under a few seconds.
- */
 void initialize() {
   // Print our branding over your terminal :D
   ez::ez_template_print();
@@ -57,8 +42,8 @@ void initialize() {
 
   // Autonomous Selector using LLEMU
   ez::as::auton_selector.autons_add({
-    //{"Left", Left},
-    {"Right", Right},
+    {"Left", Left},
+    //{"Right", Right},
     //{"QuickLeft", QuickLeft},
     //{"QuickRight", QuickRight},
     //{"StatesSkills", StatesSkills},
@@ -112,19 +97,6 @@ void autonomous() {
   chassis.odom_xyt_set(0_in, 0_in, 0_deg);    // Set the current position, you can start at a specific position with this
   chassis.drive_brake_set(MOTOR_BRAKE_HOLD);  // Set motors to hold.  This helps autonomous consistency
 
-  /*
-  Odometry and Pure Pursuit are not magic
-
-  It is possible to get perfectly consistent results without tracking wheels,
-  but it is also possible to have extremely inconsistent results without tracking wheels.
-  When you don't use tracking wheels, you need to:
-   - avoid wheel slip
-   - avoid wheelies
-   - avoid throwing momentum around (super harsh turns, like in the example below)
-  You can do cool curved motions, but you have to give your robot the best chance
-  to be consistent
-  */
-
   ez::as::auton_selector.selected_auton_call();  // Calls selected auton from autonomous selector
 }
 
@@ -141,11 +113,6 @@ void screen_print_tracker(ez::tracking_wheel *tracker, std::string name, int lin
   ez::screen_print(tracker_value + tracker_width, line);  // Print final tracker text
 }
 
-/**
- * Ez screen task
- * Adding new pages here will let you view them during user control or autonomous
- * and will help you debug problems you're having
- */
 void ez_screen_task() {
   while (true) {
     // Only run this when not connected to a competition switch
@@ -198,15 +165,9 @@ void ez_screen_task() {
     pros::delay(ez::util::DELAY_TIME);
   }
 }
+
 pros::Task ezScreenTask(ez_screen_task);
 
-/**
- * Gives you some extras to run in your opcontrol:
- * - run your autonomous routine in opcontrol by pressing DOWN and B
- *   - to prevent this from accidentally happening at a competition, this
- *     is only enabled when you're not connected to competition control.
- * - gives you a GUI to change your PID values live by pressing X
- */
 void ez_template_extras() {
   // Only run this when not connected to a competition switch
   if (!pros::competition::is_connected()) {
@@ -231,44 +192,40 @@ void ez_template_extras() {
   }
 }
 
-/**
- * Runs the operator control code. This function will be started in its own task
- * with the default priority and stack size whenever the robot is enabled via
- * the Field Management System or the VEX Competition Switch in the operator
- * control mode.
- *
- * If no competition control is connected, this function will run immediately
- * following initialize().
- *
- * If the robot is disabled or communications is lost, the
- * operator control task will be stopped. Re-enabling the robot will restart the
- * task, not resume it from where it left off.
- */
 void opcontrol() {
-  // This is preference to what you like to drive on
   chassis.drive_brake_set(MOTOR_BRAKE_COAST);
   bool romeDaGoat = false;
-  float TargetPos = 150;
-  float Kp = 0.2;
   while (true) {
-    // Gives you some extras to make EZ-Template ezier
     ez_template_extras();
 
-    // chassis.opcontrol_tank();  // Tank control
-    chassis.opcontrol_arcade_standard(ez::SPLIT);   // Standard split arcade
-    // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Standard single arcade
-    // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped split arcade
-    // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped single arcade
+    // chassis.opcontrol_tank();  // Tank
+    chassis.opcontrol_arcade_standard(ez::SPLIT);   // Arcade
+    // chassis.opcontrol_arcade_standard(ez::SINGLE);  // Halo
+    // chassis.opcontrol_arcade_flipped(ez::SPLIT);    // Flipped Arcade
+    // chassis.opcontrol_arcade_flipped(ez::SINGLE);   // Flipped Halo
 
-
-    // . . .
-    // Put more user control code here!
-    // . . .
     MatchLoader.button_toggle(master.get_digital(DIGITAL_RIGHT)); 
-    Hood.button_toggle(master.get_digital(DIGITAL_B));
-    ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
-    DescoreWing.button_toggle(master.get_digital(DIGITAL_DOWN));
 
+    ScoreSwitcher.button_toggle(master.get_digital(DIGITAL_Y));
+    
+    if (master.get_digital(DIGITAL_B) && !romeDaGoat) {
+
+      romeDaGoat = true;
+
+      DescoreWing.set(false);
+
+
+    } else if (master.get_digital(DIGITAL_B)) {
+
+      romeDaGoat = false;
+ 
+    } else {
+
+      DescoreWing.set(true);
+
+    }
+
+//Hood/Lever Opcontrol
     if (master.get_digital(DIGITAL_R1)) {
       Hood.set(true);
       pros::delay(200);
@@ -284,6 +241,7 @@ void opcontrol() {
       Lever.move_absolute(0,127);
     }
 
+//Channel Opcontrol
     if (master.get_digital(DIGITAL_L1)) {
       Channel.move(127);
     } 
